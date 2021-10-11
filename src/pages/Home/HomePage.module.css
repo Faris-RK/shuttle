@@ -1,0 +1,81 @@
+.HomePageContainer{
+    margin: 110px 135px auto ;
+    float: left;
+}
+
+.fontBusBook{
+    color:#28B5B5 ;
+    text-align: left;
+    font-size: 1.5em;
+}
+
+.titleBanner{
+    font-size: 4em;
+    height: 150px;
+    text-align: left;
+}
+.textBusDesc{
+    text-align: left;
+    margin-top: 40px;
+    width: 700px;
+}
+
+.imgBanner{
+    z-index: -999;
+    position:relative;
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+    height: 110vh;
+    width: 90vh;
+    margin-top: -7%;
+    margin-left: -5%;
+    text-align: right;
+    border: solid #0F5996;
+    float: right;
+}
+
+/* ============================================== SECTION ====================================== */
+.text{
+    color: #0F5996;
+    font-size: 25px;
+}
+.headTitle{
+    color: #092C4C;
+    font-size: 55px;
+}
+.headDesc{
+    color: #646464;
+    font-size: 20px
+}
+.sectiontext{
+    /* border: solid; */
+    position: relative;
+    margin-top: 60%;
+    text-align: center;
+}
+.cardContainer{
+    display: flex;
+    /* border: solid; */
+    margin: 50px 50px auto; 
+    justify-content: center;   
+}
+.cardSection{
+    border:1px solid #0000001A;
+    text-align: left;
+    width: 350px;
+    height: 350px;
+    margin: 0px 35px;
+    padding: 30px;
+}
+.iconSection{
+    width: 64px;
+    height: 64px;
+}
+.cardTitle{
+    margin-top: 40px;
+    font-size: 1.5em;
+}
+.cardDesc{
+    margin-top: 30px;
+    margin-bottom: 60px;
+}

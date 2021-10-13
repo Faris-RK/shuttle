@@ -35,6 +35,9 @@
 }
 
 /* ============================================== SECTION ====================================== */
+.sectionContainer{
+    padding-bottom: 200px;
+}
 .text{
     color: #0F5996;
     font-size: 25px;

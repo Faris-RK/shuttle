@@ -51,9 +51,6 @@ function SectionHomePage() {
             </a>
           </div>
         </div>
-        <div>
-          <h1>footer</h1>
-        </div>
       </div>
     </React.Fragment>
   );

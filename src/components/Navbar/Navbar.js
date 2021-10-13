@@ -4,6 +4,12 @@ import styles from "../Navbar/Navbar.module.css";
 import { Link, Route, useHistory } from "react-router-dom";
 
 function Navbar() {
+  // let history = useHistory();
+
+  // function handleClick() {
+  //   history.push("/SearchBus");
+  // }
+
   return (
     <React.Fragment>
       <div className={styles.navbarContainer}>
@@ -11,8 +17,12 @@ function Navbar() {
           <img className={styles.logoNavbar} src={Logo} />
           <div className={styles.navList}>
             <ul>
-              <li>Home</li>
-              <li>Search Bus</li>
+              <Link to={"/"}>
+                <li>Home</li>
+              </Link>
+              <Link to={"/SearchBus"}>
+                <li>Search Bus</li>
+              </Link>
               <li>My Booking</li>
               <li>Check Booking</li>
             </ul>

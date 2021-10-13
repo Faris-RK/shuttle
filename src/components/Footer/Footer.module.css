@@ -1,0 +1,93 @@
+.mockupWrapper{
+    display: flex;
+    /* border: solid; */
+    justify-content: center;
+}
+.logoMockup{
+    z-index: -9999;
+}
+.mockupSection{
+    /* border: solid; */
+    margin-left: 30px;
+    text-align: left;
+}
+.mockupTitle{
+    color: black;
+    font-size: 45px;
+    
+}
+.mockupDesc{
+    font-size: 20px;
+    margin-top: 30px;
+}
+.mockupBtn{
+    border-radius: 15px;
+    background-color: #0F5996;
+    color: #ffff;
+    width: 350px;
+    height: 60px;
+    margin-top: 5vh;
+    font-size: 16px;
+}
+.aboutContainer{
+    background-color: #0F5996;
+    margin: -130px auto;
+}
+.aboutWrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 25px 25px 25px;
+    align-items: center;
+    width: 90%;
+    margin: 25px auto;
+    /* border: solid; */
+}
+.shuttleDesc{
+    text-align: left;
+    color: #ffff;
+    width: 300px;
+    /* border: solid; */
+}
+.linkDesc{
+    text-align: left;
+    /* border: solid; */
+    color: #ffff;
+}
+.contact{
+    text-align: left;
+    width: 300px;
+    margin-top: -75px;
+    color: #ffff;
+    /* border: solid; */
+}
+.logoShuttle{
+    height: 45px;
+}
+.shuttleSection{
+    margin-top: 20px;
+}
+.shuttleIcon img{
+    padding: 0px 20px 0px 0px;
+    margin-top: 10px;
+}
+.Title{
+    font-size: 30px;
+}
+.copyRight{
+    border-top: 1px solid  #ABB3BB;
+    color: #ffff;
+  
+} 
+.concernt{
+    justify-content: space-between;
+    width: 90%;
+    align-items: center;
+    display: flex;
+    margin: 25px auto;
+}
+.copyDesc{
+    display: flex;
+}
+.copyDesc p {
+    padding: 0px 25px 0px 25px;
+}

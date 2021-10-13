@@ -37,14 +37,14 @@ nav{
 }
 .btnSignup{
     background-color: #0F5996;
-    border-radius: 15%;
+    border-radius: 15px;
     height: 53px;
     width: 129px;
     color: white;
 }
 .btnSignin{
     background-color: #ffffff;
-    border-radius: 15%;
+    border-radius: 15px;
     height: 55px;
     width: 129px;
     border: 2px solid #0F5996;

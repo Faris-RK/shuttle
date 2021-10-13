@@ -9,14 +9,12 @@ import SearchBus from "../pages/SearchBus/SearchBusPage";
 
 function Routes() {
   return (
-    <BrowserRouter>
-      <Router>
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/" component={SearchBus} />
-        </Switch>
-      </Router>
-    </BrowserRouter>
+    <Router>
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/SearchBus" component={SearchBus} />
+      </Switch>
+    </Router>
   );
 }
 

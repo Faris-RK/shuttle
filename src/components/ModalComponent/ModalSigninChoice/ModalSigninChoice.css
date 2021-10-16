@@ -1,0 +1,112 @@
+.sign-modal-container {
+  position: absolute;
+  width: 689px;
+  height: 287px;
+  left: 376px;
+  top: 113px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(208, 132, 17, 0.15);
+  border-radius: 20px;
+}
+
+.sign-logo-container {
+  display: flex;
+  margin-top: 48px;
+  /* width: 199.74px;
+  height: 46.5px;
+  left: 245px;
+  top: 48px; */
+  justify-content: center;
+}
+.logo {
+  width: 54.43px;
+  height: 45.44px;
+  margin-right: 8.45px;
+}
+
+.logo-text {
+  font-family: "Montserrat" sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36.9889px;
+  line-height: 45px;
+  /* identical to box height */
+
+  /* 1 */
+
+  color: #0f5996;
+}
+
+.line {
+  margin-top: 20.5px;
+  border: 1px solid #abb3bb;
+  margin: 0px;
+  margin-top: 20.5px;
+}
+
+.sign-close-button {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  cursor: pointer;
+}
+
+.sign-in-container {
+  display: flex;
+  justify-content: center;
+  height: 48px;
+  margin-top: 24px;
+}
+
+.text-footer {
+  margin-top: 27.5px;
+  text-align: center;
+  font-family: "Montserrat" sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+
+  /* 4 */
+
+  color: #092c4c;
+}
+
+.sign-vendor {
+  width: 295px;
+  margin-right: 16px;
+  background: #cbffca;
+  border-radius: 8px;
+  border-style: none;
+
+  font-family: "Montserrat" sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  color: #092c4c;
+}
+
+.sign-user {
+  width: 295px;
+  background: #0f5996;
+  border-radius: 8px;
+  border-style: none;
+
+  font-family: "Montserrat" sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+
+  color: #ffffff;
+}
+.mini-logo {
+  margin-right: 8px;
+}
+
+.user-logo {
+  text-align: center;
+  margin-right: 8px;
+}

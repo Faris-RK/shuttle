@@ -1,9 +1,9 @@
 import * as React from "react";
-import Logo from "./Logo.png";
+import Logo from "../../assets/logo.png";
 import styles from "../Navbar/Navbar.module.css";
-import { Link, Route, useHistory } from "react-router-dom";
+import { Link} from "react-router-dom";
 
-function Navbar() {
+function Navbar({ showModal }) {
   // let history = useHistory();
 
   // function handleClick() {
@@ -14,21 +14,23 @@ function Navbar() {
     <React.Fragment>
       <div className={styles.navbarContainer}>
         <nav>
-          <img className={styles.logoNavbar} src={Logo} />
+          <img className={styles.logoNavbar} src={Logo} alt="logo" />
           <div className={styles.navList}>
             <ul>
-              <Link to={"/"}>
-                <li>Home</li>
-              </Link>
-              <Link to={"/SearchBus"}>
-                <li>Search Bus</li>
-              </Link>
+              <li>
+                <Link to={"/"}>Home</Link>
+              </li>
+
+              <li>
+                <Link to={"/SearchBus"}>Search Bus</Link>
+              </li>
+
               <li>My Booking</li>
               <li>Check Booking</li>
             </ul>
           </div>
           <div className={styles.btnContainer}>
-            <button className={styles.btnSignin}>Sign in</button>
+            <button className={styles.btnSignin} onClick={showModal}>Sign in</button>
             <button className={styles.btnSignup}>Sign Up</button>
           </div>
         </nav>

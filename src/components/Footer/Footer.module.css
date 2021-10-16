@@ -1,93 +1,155 @@
-.mockupWrapper{
-    display: flex;
-    /* border: solid; */
-    justify-content: center;
+.mockupWrapper {
+  display: flex;
+  /* border: solid; */
+  justify-content: center;
 }
-.logoMockup{
-    z-index: -9999;
+.logoMockup {
+  z-index: -9999;
 }
-.mockupSection{
-    /* border: solid; */
-    margin-left: 30px;
-    text-align: left;
+.mockupSection {
+  /* border: solid; */
+  margin-left: 30px;
+  text-align: left;
 }
-.mockupTitle{
-    color: black;
-    font-size: 45px;
-    
+.mockupTitle {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 60px;
+  /* or 150% */
+
+  letter-spacing: -0.5px;
+
+  /* Dark */
+
+  color: #323232;
 }
-.mockupDesc{
-    font-size: 20px;
-    margin-top: 30px;
+.mockupDesc {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 180%;
+  /* or 25px */
+
+  letter-spacing: 0.15px;
+
+  /* 4 */
+
+  color: #092c4c;
+
+  opacity: 0.6;
 }
-.mockupBtn{
-    border-radius: 15px;
-    background-color: #0F5996;
-    color: #ffff;
-    width: 350px;
-    height: 60px;
-    margin-top: 5vh;
-    font-size: 16px;
+.mockupBtn {
+  background: #0f5996;
+  border-radius: 8px;
+  color: #ffff;
+  width: 276px;
+  height: 61px;
+  margin-top: 5vh;
+
+  border-style: none;
+
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  /* White */
+
+  color: #ffffff;
 }
-.aboutContainer{
-    background-color: #0F5996;
-    margin: -130px auto;
+.aboutContainer {
+  background-color: #0f5996;
+  margin: -130px auto;
 }
-.aboutWrapper{
-    display: flex;
-    justify-content: space-between;
-    padding: 25px 25px 25px 25px;
-    align-items: center;
-    width: 90%;
-    margin: 25px auto;
-    /* border: solid; */
+.aboutWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 25px 25px 25px 25px;
+  align-items: center;
+  width: 90%;
+  margin: 25px auto;
+  /* border: solid; */
 }
-.shuttleDesc{
-    text-align: left;
-    color: #ffff;
-    width: 300px;
-    /* border: solid; */
+.shuttleDesc {
+  text-align: left;
+  color: #ffff;
+  width: 360px;
+  /* border: solid; */
 }
-.linkDesc{
-    text-align: left;
-    /* border: solid; */
-    color: #ffff;
+.linkDesc {
+  text-align: left;
+  /* border: solid; */
+  color: #ffff;
 }
-.contact{
-    text-align: left;
-    width: 300px;
-    margin-top: -75px;
-    color: #ffff;
-    /* border: solid; */
+.contact {
+  text-align: left;
+  width: 300px;
+  margin-top: -75px;
+  color: #ffff;
+  /* border: solid; */
 }
-.logoShuttle{
-    height: 45px;
+
+.shuttleSection {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 32px;
+  /* or 200% */
+
+  letter-spacing: -0.5px;
+
+  color: #f4f4f4;
+  margin-top: 20px;
 }
-.shuttleSection{
-    margin-top: 20px;
+.shuttleIcon img {
+  padding: 0px 20px 0px 0px;
+  margin-top: 10px;
 }
-.shuttleIcon img{
-    padding: 0px 20px 0px 0px;
-    margin-top: 10px;
+.Title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 16px;
+  /* identical to box height, or 100% */
+
+  /* White */
+
+  color: #ffffff;
 }
-.Title{
-    font-size: 30px;
+.copyRight {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  /* identical to box height, or 100% */
+
+  /* White */
+
+  color: #ffffff;
+  background-clip: padding-box;
+
+  border-top: 1px solid rgba(171, 179, 187, 0.2);
+  color: #ffff;
 }
-.copyRight{
-    border-top: 1px solid  #ABB3BB;
-    color: #ffff;
-  
-} 
-.concernt{
-    justify-content: space-between;
-    width: 90%;
-    align-items: center;
-    display: flex;
-    margin: 25px auto;
+.concernt {
+  justify-content: space-between;
+  width: 90%;
+  align-items: center;
+  display: flex;
+  margin: 25px auto;
+  padding-left: 25px;
 }
-.copyDesc{
-    display: flex;
+.copyDesc {
+  display: flex;
 }
 .copyDesc p {
-    padding: 0px 25px 0px 25px;
+  padding: 0px 25px 0px 25px;
 }

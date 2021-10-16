@@ -12,11 +12,11 @@
 }
 nav {
   display: flex;
-  margin-left: 121px;
+  /* margin-left: 121px; */
 
   /* border: solid; */
   align-items: center;
-  /* width: 90%; */
+  width: 90%;
 
   height: 100%;
 }

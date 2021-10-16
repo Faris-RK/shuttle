@@ -18,35 +18,35 @@ function SectionHomePage() {
         </div>
         <div className={styles.cardContainer}>
           <div className={styles.cardSection}>
-            <img className={styles.iconSection} src={icon} />
+            <img className={styles.iconSection} src={icon} alt="" />
             <h1 className={styles.cardTitle}>Easy Booking</h1>
             <p className={styles.cardDesc}>
               Make your trip easily when use this app and many hours can save by
               this app
             </p>
-            <a href="#" className={styles.cardTxtLink}>
+            <a href=" " className={styles.cardTxtLink} alt="">  
               Read More
             </a>
           </div>
           <div className={styles.cardSection}>
-            <img className={styles.iconSection} src={icon} />
+            <img className={styles.iconSection} src={icon} alt="" />
             <h1 className={styles.cardTitle}>24/7 Helpdesk Support</h1>
             <p className={styles.cardDesc}>
               Make your trip easily when use this app and many hours can save by
               this app
             </p>
-            <a href="#" className={styles.cardTxtLink}>
+            <a href=" " className={styles.cardTxtLink}>
               Read More
             </a>
           </div>
           <div className={styles.cardSection}>
-            <img className={styles.iconSection} src={icon} />
+            <img className={styles.iconSection} src={icon} alt="" />
             <h1 className={styles.cardTitle}>Easy of Payment</h1>
             <p className={styles.cardDesc}>
               Make your trip easily when use this app and many hours can save by
               this app
             </p>
-            <a href="#" className={styles.cardTxtLink}>
+            <a href=" " className={styles.cardTxtLink}>
               Read More
             </a>
           </div>

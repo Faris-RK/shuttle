@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Footer.module.css";
 import XMockup from "./XMockup.png";
-import Logo from "./Logo.png";
+import Logo from "../../assets/logo-footer.png";
 import Facebook from "./Facebook.png";
 import Instagram from "./Instagram.png";
 import Youtube from "./Youtube.png";
@@ -12,7 +12,7 @@ function Footer() {
     <React.Fragment>
       <div className={styles.footerContainer}>
         <div className={styles.mockupWrapper}>
-          <img src={XMockup} className={styles.logoMockup} />
+          <img src={XMockup} className={styles.logoMockup} alt="" />
           <div className={styles.mockupSection}>
             <h1 className={styles.mockupTitle}>
               {" "}
@@ -22,22 +22,22 @@ function Footer() {
             <p className={styles.mockupDesc}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
             </p>
-            <button className={styles.mockupBtn}>DOWNLOAD</button>
+            <button className={styles.mockupBtn}>Download</button>
           </div>
         </div>
         <div className={styles.aboutContainer}>
           <div className={styles.aboutWrapper}>
             <div className={styles.shuttleDesc}>
-              <img src={Logo} className={styles.logoShuttle} />
+              <img src={Logo} className={styles.logoShuttle} alt="" />
               <p className={styles.shuttleSection}>
                 The best bus booking apps in Indonesia. Lorem ipsum dolor sit
                 amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet.
               </p>
               <div className={styles.shuttleIcon}>
-                <img src={Facebook} />
-                <img src={Instagram} />
-                <img src={Twitter} />
-                <img src={Youtube} />
+                <img src={Facebook} alt="" />
+                <img src={Instagram} alt="" />
+                <img src={Twitter} alt="" />
+                <img src={Youtube} alt="" />
               </div>
             </div>
             <div className={styles.linkDesc}>

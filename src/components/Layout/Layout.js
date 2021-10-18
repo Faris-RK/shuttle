@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { useState, useRef } from "react";
 import Modal from "../ModalComponent/Modal/Modal";
+import ModalSigninChoice from "../ModalComponent/ModalSigninChoice/ModalSigninChoice";
 
 // import SigninModal from "../ModalComponent/ModalSigninChoice/ModalSigninChoice";
 
@@ -11,6 +12,7 @@ export default function Layout({ children }) {
     isShown: false,
     formType: "register",
     userType: "user", // user, vendor
+    modalType: "choice", //choice, form
   });
 
   let modal = null;
@@ -25,8 +27,13 @@ export default function Layout({ children }) {
     document.querySelector("html").classList.toggle("scroll-lock");
   };
 
-  const showModal = () => {
-    setModalState({ ...modalState, isShown: true });
+  const showModal = (type, formType) => {
+    setModalState({
+      ...modalState,
+      isShown: true,
+      modalType: type,
+      formType: formType,
+    });
     toggleScrollLock();
   };
 
@@ -46,24 +53,45 @@ export default function Layout({ children }) {
   };
 
   const onSubmit = () => {};
+  const renderModal = () => {
+    if (modalState.isShown) {
+      if (modalState.modalType === "form") {
+        return (
+          <Modal
+            onSubmit={onSubmit}
+            modalRef={(n) => (modal = n)}
+            closeModal={closeModal}
+            onKeyDown={onKeyDown}
+            onClickOutside={onClickOutside}
+            modalState={modalState}
+            changeFormType={changeFormType}
+          />
+        );
+      } else {
+        return (
+          <ModalSigninChoice
+            closeModal={closeModal}
+            showModal={showModal}
+            modalState={modalState}
+            onSubmit={onSubmit}
+            modalRef={(n) => (modal = n)}
+            onKeyDown={onKeyDown}
+            onClickOutside={onClickOutside}
+            changeFormType={changeFormType}
+          />
+        );
+      }
+      // tampilkan modal
+    } else {
+      // sembunyikan modal
+    }
+  };
   return (
     <div>
       <Navbar showModal={showModal} />
       {children}
-
       <Footer />
-
-      {modalState.isShown ? (
-        <Modal
-          onSubmit={onSubmit}
-          modalRef={(n) => (modal = n)}
-          closeModal={closeModal}
-          onKeyDown={onKeyDown}
-          onClickOutside={onClickOutside}
-          modalState={modalState}
-          changeFormType={changeFormType}
-        />
-      ) : null}
+      {renderModal()}
     </div>
   );
 }

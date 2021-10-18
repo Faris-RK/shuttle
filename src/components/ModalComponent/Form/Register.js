@@ -9,7 +9,8 @@ import or from "../../../assets/or.png";
 
 export const RegisterForm = ({ onSubmit, changeFormType }) => {
   return (
-    <div className="flex-container">
+    <div className="flex-container auth-form">
+
       {/* modal gambar kiri */}
       <div className="modal-left">
         <div className="image-overlay"></div>

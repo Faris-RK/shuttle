@@ -55,7 +55,7 @@
 }
 
 .form-group {
-  text-align: center;
+  /* text-align: center; */
 
   border: 0.7px;
   box-sizing: border-box;
@@ -63,7 +63,7 @@
   margin-bottom: 18px;
 }
 
-.form-control {
+.auth-form .form-control {
   border-radius: 8px;
   height: 48px;
 }
@@ -143,6 +143,7 @@
   position: absolute;
   top: 24px;
   right: 24px;
+  cursor: pointer;
 }
 .login-fb {
   margin-left: 17px;

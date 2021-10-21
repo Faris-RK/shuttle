@@ -1,14 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./ModalSigninChoice.css";
+import "./ModalSignupChoice.css";
 import Logo from "../../../assets/logo-modal.png";
 import Close from "../../../assets/closelogo.png";
 import MiniLogo from "../../../assets/bus-mini.png";
 import UserLogo from "../../../assets/user.png";
 import FocusTrap from "focus-trap-react";
 
-
-function ModalSigninChoice({
+function ModalSignupChoice({
   onClickOutside,
   onKeyDown,
   modalRef,
@@ -39,19 +38,19 @@ function ModalSigninChoice({
                 <p className="logo-text">shuttle</p>
               </div>
               <hr className="line" />
-              <p className="text-footer">Choose Sign in</p>
+              <p className="text-footer">Choose Sign up</p>
               <div className="sign-in-container">
                 <button className="sign-vendor">
                   <img className="mini-logo" src={MiniLogo} alt=""></img>
-                  Sign in as Bus Vendor
+                  Sign up as Bus Vendor
                 </button>
 
                 <button
-                  className='sign-user'
-                  onClick={() => showModal("form", "login")}
+                  className="sign-user"
+                  onClick={() => showModal("form", "register")}
                 >
                   <img className="user-logo" src={UserLogo} alt="" />
-                  Sign in as User
+                  Sign up as User
                 </button>
               </div>
             </div>
@@ -63,4 +62,4 @@ function ModalSigninChoice({
   );
 }
 
-export default ModalSigninChoice;
+export default ModalSignupChoice;

@@ -3,6 +3,8 @@ import Footer from "../Footer/Footer";
 import Navbar from "../Navbar/Navbar";
 import { useState, useRef } from "react";
 import Modal from "../ModalComponent/Modal/Modal";
+import ModalSigninChoice from "../ModalComponent/ModalSigninChoice/ModalSigninChoice";
+import ModalSignupChoice from "../ModalComponent/ModalSignupChoice/ModalSignupChoice";
 
 // import SigninModal from "../ModalComponent/ModalSigninChoice/ModalSigninChoice";
 
@@ -11,6 +13,7 @@ export default function Layout({ children }) {
     isShown: false,
     formType: "register",
     userType: "user", // user, vendor
+    modalType: "choiceSignIn", //choiceSignIn, choiceSignUp, form
   });
 
   let modal = null;
@@ -25,8 +28,14 @@ export default function Layout({ children }) {
     document.querySelector("html").classList.toggle("scroll-lock");
   };
 
-  const showModal = () => {
-    setModalState({ ...modalState, isShown: true });
+  const showModal = (type, formType) => {
+    console.log ('p')
+    setModalState({
+      ...modalState,
+      isShown: true,
+      modalType: type,
+      formType: formType,
+    });
     toggleScrollLock();
   };
 
@@ -46,24 +55,61 @@ export default function Layout({ children }) {
   };
 
   const onSubmit = () => {};
+  
+  const renderModalSignin = () => {
+    if (modalState.isShown) {
+      if (modalState.modalType === "form") {
+        return (
+          <Modal
+            onSubmit={onSubmit}
+            modalRef={(n) => (modal = n)}
+            closeModal={closeModal}
+            onKeyDown={onKeyDown}
+            onClickOutside={onClickOutside}
+            modalState={modalState}
+            changeFormType={changeFormType}
+          />
+        );
+      } else {
+        if (modalState.modalType === "choiceSignIn") {
+          return (
+            <ModalSigninChoice
+              closeModal={closeModal}
+              showModal={showModal}
+              modalState={modalState}
+              onSubmit={onSubmit}
+              modalRef={(n) => (modal = n)}
+              onKeyDown={onKeyDown}
+              onClickOutside={onClickOutside}
+              changeFormType={changeFormType}
+            />
+          );
+        } else {
+          //tampilkan modal sign up
+          return(
+          <ModalSignupChoice
+            closeModal={closeModal}
+            showModal={showModal}
+            modalState={modalState}
+            onSubmit={onSubmit}
+            modalRef={(n) => (modal = n)}
+            onKeyDown={onKeyDown}
+            onClickOutside={onClickOutside}
+            changeFormType={changeFormType}
+          />
+          )
+        }
+      }
+    } else {
+      // sembunyikan modal
+    }
+  };
   return (
     <div>
       <Navbar showModal={showModal} />
       {children}
-
       <Footer />
-
-      {modalState.isShown ? (
-        <Modal
-          onSubmit={onSubmit}
-          modalRef={(n) => (modal = n)}
-          closeModal={closeModal}
-          onKeyDown={onKeyDown}
-          onClickOutside={onClickOutside}
-          modalState={modalState}
-          changeFormType={changeFormType}
-        />
-      ) : null}
+      {renderModalSignin()}
     </div>
   );
 }

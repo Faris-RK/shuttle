@@ -1,7 +1,7 @@
 import * as React from "react";
 import Logo from "../../assets/logo.png";
 import styles from "../Navbar/Navbar.module.css";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function Navbar({ showModal }) {
   // let history = useHistory();
@@ -14,7 +14,9 @@ function Navbar({ showModal }) {
     <React.Fragment>
       <div className={styles.navbarContainer}>
         <nav>
-          <img className={styles.logoNavbar} src={Logo} alt="logo" />
+          <Link to={"/"}>
+            <img className={styles.logoNavbar} src={Logo} alt="logo" />
+          </Link>
           <div className={styles.navList}>
             <ul>
               <li>
@@ -30,8 +32,18 @@ function Navbar({ showModal }) {
             </ul>
           </div>
           <div className={styles.btnContainer}>
-            <button className={styles.btnSignin} onClick={showModal}>Sign in</button>
-            <button className={styles.btnSignup}>Sign Up</button>
+            <button
+              className={styles.btnSignin}
+              onClick={() => showModal("choiceSignIn")}
+            >
+              Sign in
+            </button>
+            <button
+              className={styles.btnSignup}
+              onClick={() => showModal("choiceSignUp")}
+            >
+              Sign Up
+            </button>
           </div>
         </nav>
       </div>

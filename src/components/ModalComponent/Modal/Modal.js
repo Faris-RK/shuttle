@@ -12,8 +12,9 @@ export const Modal = ({
   onSubmit,
   modalState,
   changeFormType,
+  closeModal,
 }) => {
-
+  console.log(changeFormType);
   return ReactDOM.createPortal(
     <FocusTrap>
       <aside
@@ -29,12 +30,18 @@ export const Modal = ({
           <div className="modal-body modal-signup">
             {modalState.formType === "register" ? (
               <RegisterForm
+                closeModal={closeModal}
                 formSetting={modalState}
                 onSubmit={onSubmit}
                 changeFormType={changeFormType}
               />
             ) : (
-              <LoginForm formSetting={modalState} onSubmit={onSubmit} changeFormType={changeFormType} />
+              <LoginForm
+                closeModal={closeModal}
+                formSetting={modalState}
+                onSubmit={onSubmit}
+                changeFormType={changeFormType}
+              />
             )}
           </div>
         </div>

@@ -7,11 +7,13 @@ import Checkbox from "@mui/material/Checkbox";
 import Fab from "@mui/material/Fab";
 import SortIcon from "@mui/icons-material/Sort";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+// import SearchBar from "../../components/SearchBar/SearchBar";
 
 function SearchBus() {
   return (
     <React.Fragment>
       <div className={styles.Container}>
+        {/* <SearchBar /> */}
         <div className={styles.depatureWrapper}>
           <h1 className={styles.titleDepature}>Choose Depature</h1>
           <p>

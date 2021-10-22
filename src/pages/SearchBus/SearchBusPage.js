@@ -5,15 +5,29 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 // import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
+import Radio from "@mui/material/Radio";
+import RadioGroup from "@mui/material/RadioGroup";
 import SortIcon from "@mui/icons-material/Sort";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import SearchBar from "../../components/SearchBar/SearchBar.js";
+import { useState } from "react";
 // import SearchBar from "../../components/SearchBar/SearchBar";
 
 function SearchBus() {
+  const [drop, setDrop] = useState(false);
+  const dropDown = () => {
+    if (drop === false) {
+      setDrop(true);
+    } else {
+      setDrop(false);
+    }
+  };
   return (
     <React.Fragment>
       <div className={styles.Container}>
-        {/* <SearchBar /> */}
+        <div className={styles.searchBarWrapper}>
+          <SearchBar />
+        </div>
         <div className={styles.depatureWrapper}>
           <h1 className={styles.titleDepature}>Choose Depature</h1>
           <p>
@@ -148,15 +162,54 @@ function SearchBus() {
           <div className={styles.DescContainer}>
             <Fab
               color="primary"
-              aria-label="sort"
+              // aria-label="sort"
               variant="extended"
               className={styles.btnSort}
-              sx={{ backgroundColor: "#0F5996", alignItems: "center" }}
+              onClick={dropDown}
+              sx={{
+                backgroundColor: "#0F5996",
+                alignItems: "center",
+                boxShadow: "none",
+              }}
             >
               <ArrowUpwardIcon />
               <SortIcon />
               &nbsp; Sort
             </Fab>
+            <div
+              className={
+                drop === false ? styles.dropdownNone : styles.dropdownctn
+              }
+            >
+              <h1 className={styles.titleDropdown}>Sort by</h1>
+              <RadioGroup
+                aria-label="gender"
+                defaultValue="female"
+                className={styles.radioButtonsGroup}
+              >
+                <FormControlLabel
+                  value="Lowest price"
+                  control={<Radio />}
+                  label="Lowest price"
+                />
+                <FormControlLabel
+                  value="Earliest depature time"
+                  control={<Radio />}
+                  label="Earliest depature time"
+                />
+                <FormControlLabel
+                  value="Earliest arival time"
+                  control={<Radio />}
+                  label="Earliest arival time"
+                />
+                <FormControlLabel
+                  value="Shortest duration"
+                  control={<Radio />}
+                  label="Shortest duration"
+                />
+                <button className={styles.btnDropdown}>Sort</button>
+              </RadioGroup>
+            </div>
             <div className={styles.DescWrapper}>
               <h1 className={styles.titleDescription}>
                 KYM Trans
@@ -166,16 +219,17 @@ function SearchBus() {
               <p>
                 Terminal Lebak Bulus <br /> 13:00 <br /> Sat,21 Augustus2021
               </p>
-              <p>
+              <p className={styles.btnArrow}>
                 {" "}
                 <Fab
                   color="primary"
                   aria-label="arrow"
-                  className={styles.btnArrow}
                   sx={{
                     backgroundColor: "#0F5996",
                     height: "5px",
                     width: "40px",
+                    boxShadow: "none",
+                    // justifyContent: "center",
                   }}
                 >
                   <ArrowForwardIcon />

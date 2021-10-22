@@ -1,0 +1,241 @@
+
+.container{
+    /* border: solid; */
+    width: 75%;
+    margin: 25px auto;
+    padding-bottom: 100px;
+    display: flex;
+}
+
+/* exact On Going Booking */
+.onGoingContainer{
+    /* border: 1px solid #0000002A; */
+    box-shadow: 0px 0px 10px 0px #0000001A;
+    text-align: left;
+    width: 712px;
+    /* height: 1px; */
+    margin-left:25px ;
+    
+    border-radius: 4px;
+}
+.onGoingSection{
+    border-bottom:1px solid #ABB3BB;
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+    font-size: 15px;
+    justify-content: space-between ;
+    padding : 20px 60px 20px 30px;
+    color: #092C4C;
+}
+.onGoingContainer:hover {
+    background-color: #CBFFCA;
+    color: black;
+  }
+.statusPay{
+    background-color: #E2B928;
+    width: 295px;
+    height: 34px;
+    border-radius: 20px;
+    margin: 25px auto;
+    
+}
+.titleStatus{
+    font-size: 16px;
+    line-height: 17px;
+    font-style:normal;
+    padding: 8px;
+    font-family: "Montserrat", sans-serif;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+/*  */
+.navWrapper{
+    /* border: solid; */
+    box-shadow: 0px 0px 10px 0px #0000001A;
+    font-family: "Montserrat", sans-serif;
+    width: 249px;
+    text-align: left;
+    border-radius: 9px;
+}
+.textOngoing{
+    color: #092C4C;
+    font-size: 16px;
+    height: 60px;
+    padding: 24px 0px 0px 24px;
+    line-height: 20px;
+    /* margin: 0 auto; */
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+.textEticket{
+    color: #092C4C;
+    font-size: 16px;
+    height: 60px;
+    padding: 24px 0px 0px 24px;
+    line-height: 20px;
+    /* margin: 0 auto; */
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+}
+.btnActive {
+    background-color: #0F5996;
+    font-size: 16px;
+    height: 60px;
+    padding: 24px 0px 0px 24px;
+    line-height: 20px;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+    color: white;
+  }
+  .btnActiveEticket{
+    background-color: #0F5996;
+    font-size: 16px;
+    height: 60px;
+    padding: 24px 0px 0px 24px;
+    line-height: 20px;
+    border-bottom-left-radius: 9px;
+    border-bottom-right-radius: 9px;
+    color: white;
+  }
+
+.detailsContainer{
+    width: 77%;
+    margin: 0px 0px 0px 25px ;
+    /* border: solid; */
+   
+}
+.detailsWrapper{
+    /* border: solid; */
+    margin-top: 80px;
+    /* border:1px solid #0000002A; */
+    box-shadow: 0px 0px 10px 0px #0000001A;
+
+    color: #092C4C;
+}
+.btnback{
+    float: left;
+}
+.titleDetails{
+    background-color: #CBFFCA;
+    text-align: left;
+    height: 60px;
+}
+.titleText{
+    font-size: 20px;
+    color: #092C4C;
+    height: 60px;
+    line-height: 60px;
+    padding: 0px 0px 0px 20px;
+}
+.sectionWrapper{
+    display: flex;
+    justify-content: space-between;
+    border-bottom:1px solid #0000002A;
+}
+.sectionMain{
+    text-align: left;
+    margin: 25px 60px;
+}
+.Status{
+    color: #E2B928;
+}
+.titelSection{
+    text-align: left;
+    margin: 25px auto;
+    width: 94%;
+}
+.textTitle{
+    font-size: 20px;
+    color: #092C4C;
+    margin-left: 30px;
+}
+.detSectionWrapper{
+    display: flex;
+    
+    justify-content: space-between;
+    border-bottom:1px solid #0000002A;
+    margin-top: -30px;
+    width: 91%;  
+}
+.sectionMainPrice{
+    text-align: left;
+    margin: 25px 100px;
+    
+}
+.sectionPrice{
+    text-align: left;
+    margin: 25px 180px;
+    
+}
+.totalPrice{
+    border-top: 1px solid #0000002A;
+    width: 270%;
+    padding-top: 20px;
+}
+.totalcost{
+    padding-top: 20px;
+}
+.btnSeePayment{
+    margin: 25px;
+    background-color: #0F5996;
+    color: #fff;
+    width: 300px; 
+    height: 50px;
+    border-radius: 8px;
+}
+.ArrvialText{
+    margin-top: 40px;
+}
+.Link{
+    text-decoration: none;
+}
+
+
+
+/* E-ticket Details  css =======================*/
+.lineicon{
+    margin-top: 35px;
+    height: 150px;
+}
+.schaduleWrapper{
+    display: flex;
+    /* justify-content: space-between; */
+    border-bottom:1px solid #0000002A;
+    gap: 15px;
+}
+.headschaduleText{
+    margin-top: 10px;
+    color: #092C4C;
+}
+.locationDesc{
+    text-align: left;
+    margin: 22px ;
+}
+.schaduleText{
+    margin-top: 50px;
+}
+.bottomschaduleText{
+    margin-top: 15px;
+    color: #092C4C;
+}
+.bottomText{
+    margin-top: -10px;
+    color: #092C4C;
+}
+.locText{
+    color: #ABB3BB;
+}
+.iconFasilities{
+    display: flex;
+    margin: 25px 60px;
+    text-align: center;
+    gap: 50px;
+    width: 94%;
+}
+
+  
+ 

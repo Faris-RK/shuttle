@@ -4,6 +4,7 @@ import styles from "../Navbar/Navbar.module.css";
 import { Link } from "react-router-dom";
 import logoUser from "../../assets/logoUser.svg";
 import logoDropdown from "../../assets/logoDropdown.svg";
+import logoUser2 from "../../assets/logoUser2.svg";
 import singoutIcon from "../../assets/singoutIcon.svg";
 import { useState } from "react";
 
@@ -82,7 +83,10 @@ function Navbar({ showModal }) {
                 }
                 // onClick={buttonSelected}
               >
-                <img className={styles.iconDropdown} src={logoUser} />
+                <img
+                  className={styles.iconDropdown}
+                  src={buttonActive === "Account" ? logoUser2 : logoUser}
+                />
                 <p className={styles.titleUser} onClick={buttonSelected}>
                   Account
                 </p>

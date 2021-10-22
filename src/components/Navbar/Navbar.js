@@ -22,11 +22,6 @@ function Navbar({ showModal }) {
   const buttonSelected = (e) => {
     setButtonActive(e.target.innerHTML);
   };
-  // let history = useHistory();
-
-  // function handleClick() {
-  //   history.push("/SearchBus");
-  // }
 
   return (
     <React.Fragment>
@@ -54,13 +49,20 @@ function Navbar({ showModal }) {
           {/* <div className={styles.btnContainer}>
             <button
               className={styles.btnSignin}
-              onClick={() => showModal("choice")}
+              onClick={() => showModal("choiceSignIn")}
             >
               Sign in
             </button>
-            <button className={styles.btnSignup}>Sign Up</button>{" "}
+
+            <button
+              className={styles.btnSignup}
+              onClick={() => showModal("choiceSignUp")}
+            >
+              Sign Up
+            </button>
           </div> */}
 
+          {/* <button className={styles.btnSignup}>Sign Up</button>{" "} */}
           {/* DROPDOWN ============================================== */}
 
           <div className={styles.ContainerDropdown} onClick={dropDown}>

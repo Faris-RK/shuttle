@@ -4,6 +4,7 @@ import Navbar from "../Navbar/Navbar";
 import { useState, useRef } from "react";
 import Modal from "../ModalComponent/Modal/Modal";
 import ModalSigninChoice from "../ModalComponent/ModalSigninChoice/ModalSigninChoice";
+import ModalSignupChoice from "../ModalComponent/ModalSignupChoice/ModalSignupChoice";
 
 // import SigninModal from "../ModalComponent/ModalSigninChoice/ModalSigninChoice";
 
@@ -12,7 +13,7 @@ export default function Layout({ children }) {
     isShown: false,
     formType: "register",
     userType: "user", // user, vendor
-    modalType: "choice", //choice, form
+    modalType: "choiceSignIn", //choiceSignIn, choiceSignUp, form
   });
 
   let modal = null;
@@ -28,6 +29,7 @@ export default function Layout({ children }) {
   };
 
   const showModal = (type, formType) => {
+    console.log ('p')
     setModalState({
       ...modalState,
       isShown: true,
@@ -53,7 +55,8 @@ export default function Layout({ children }) {
   };
 
   const onSubmit = () => {};
-  const renderModal = () => {
+  
+  const renderModalSignin = () => {
     if (modalState.isShown) {
       if (modalState.modalType === "form") {
         return (
@@ -68,8 +71,23 @@ export default function Layout({ children }) {
           />
         );
       } else {
-        return (
-          <ModalSigninChoice
+        if (modalState.modalType === "choiceSignIn") {
+          return (
+            <ModalSigninChoice
+              closeModal={closeModal}
+              showModal={showModal}
+              modalState={modalState}
+              onSubmit={onSubmit}
+              modalRef={(n) => (modal = n)}
+              onKeyDown={onKeyDown}
+              onClickOutside={onClickOutside}
+              changeFormType={changeFormType}
+            />
+          );
+        } else {
+          //tampilkan modal sign up
+          return(
+          <ModalSignupChoice
             closeModal={closeModal}
             showModal={showModal}
             modalState={modalState}
@@ -79,9 +97,9 @@ export default function Layout({ children }) {
             onClickOutside={onClickOutside}
             changeFormType={changeFormType}
           />
-        );
+          )
+        }
       }
-      // tampilkan modal
     } else {
       // sembunyikan modal
     }
@@ -91,7 +109,7 @@ export default function Layout({ children }) {
       <Navbar showModal={showModal} />
       {children}
       <Footer />
-      {renderModal()}
+      {renderModalSignin()}
     </div>
   );
 }

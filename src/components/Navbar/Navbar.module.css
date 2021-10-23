@@ -1,53 +1,79 @@
-.navbarContainer{
-    width: 100%;
-    /* border:  1px solid red; */
+.navbarContainer {
+  /* position: fixed; */
+
+  left: 0px;
+  top: 0px;
+  height: 85px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+
+  /* border:  1px solid red; */
 }
-nav{
-    display:flex;
-    justify-content: space-between;
-    /* border: solid; */
-    align-items: center;
-    width: 90%;
-    margin: 25px auto;
-    height: 100%;
+nav {
+  display: flex;
+  /* margin-left: 121px; */
+
+  /* border: solid; */
+  align-items: center;
+  width: 90%;
+
+  height: 100%;
 }
-.logoNavbar{
-    width: 150px;
-    height: 55px;
+
+.navList {
+  margin-left: -10%;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  margin-left: 98px;
+
+  /* 4 */
+
+  color: #092c4c;
 }
-.navList{
-    margin-left: -10%;
-    cursor: pointer;
+.navList ul {
+  display: flex;
+  width: 524px;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 0px;
+  list-style: none;
+  margin: 0;
+  padding: 5px 5px 5px 5px;
+  /* border-style: solid; */
 }
-.navList ul{
-    display: flex;
-    margin-left: 0px;
-    list-style: none;
-    margin : 0;
-    padding: 5px 5px 5px 5px;
-    /* border-style: solid; */
+
+.btnContainer {
+  /* border: solid; */
+  margin-right: 40px;
+  margin-left: 189px;
+  display: flex;
 }
-.navList li{
-    margin: 5px 30px auto;
-    font-size: 1.2em;
+.btnSignup {
+  background-color: #0f5996;
+  border-radius: 15px;
+  height: 53px;
+  width: 129px;
+  color: white;
+  border-style: none;
 }
-.btnContainer{
-    /* border: solid; */
-    margin-right: 40px;
+.btnSignin {
+  background-color: #ffffff;
+  border-radius: 15px;
+  height: 55px;
+  width: 129px;
+  border: 1px solid #0f5996;
+  margin-right: 20px;
+  color: #0f5996;
 }
-.btnSignup{
-    background-color: #0F5996;
-    border-radius: 15px;
-    height: 53px;
-    width: 129px;
-    color: white;
+.Navbar_btnContainer__rmJYz {
+  display: flex !important;
 }
-.btnSignin{
-    background-color: #ffffff;
-    border-radius: 15px;
-    height: 55px;
-    width: 129px;
-    border: 2px solid #0F5996;
-    margin-right: 20px;
-    color: #0F5996 ;
+li a {
+  color: rgb(19, 16, 16);
+  text-decoration: none;
 }

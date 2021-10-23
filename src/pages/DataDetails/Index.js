@@ -1,11 +1,25 @@
 import * as React from "react";
-import ReactDOM from "react-dom";
-import { StyledEngineProvider } from "@mui/material/styles";
-import ProfileData from "../ProfileAccount/ProfileData";
+import ProfileDetails from "../../components/ProfileAccount/ProfileDetails";
+import ProfileData from "../../components/ProfileAccount/ProfileData";
 
-ReactDOM.render(
-  <StyledEngineProvider injectFirst>
-    <ProfileData />
-  </StyledEngineProvider>,
-  document.querySelector("#root")
-);
+function ProfilePages() {
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+  return (
+    <div
+      style={{
+        display: "flex",
+
+        width: "75%",
+        margin: "25px auto",
+      }}
+    >
+      <ProfileData
+        selectedIndex={selectedIndex}
+        setSelectedIndex={setSelectedIndex}
+      />
+      <ProfileDetails tab={selectedIndex} />
+    </div>
+  );
+}
+
+export default ProfilePages;

@@ -1,0 +1,72 @@
+.textp {
+  font-family: "Montserrat";
+  background: #cbffca;
+  width: 693px;
+  height: 60px;
+  color: #0f5996;
+  padding: 2vh 2vw;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 32px;
+}
+.textp p {
+  margin: 0;
+}
+.imgprofile {
+  width: 96px;
+  height: 96px;
+  left: 48px;
+  top: 92px;
+}
+.buttonphoto {
+  width: 127px;
+  height: 33px;
+  border: 1px solid #0f5996;
+  filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.1));
+  border-radius: 8px;
+  font-family: "Montserrat";
+
+  font-weight: 500;
+  font-size: 14px;
+}
+.TextField {
+  width: 100%;
+}
+.boxform {
+  margin-left: 48px;
+}
+.textremove {
+  font-family: "Montserrat";
+  color: #0f5996;
+  font-size: 14px;
+  width: 60px;
+  height: 17px;
+  line-height: 17.07px;
+}
+.imagecontainer {
+  display: flex;
+  margin-left: 50px;
+  margin-bottom: 32px;
+}
+.buttonchange {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 34px;
+}
+.buttonsave {
+  background-color: #0f5996;
+  width: 243px;
+  height: 48px;
+  color: white;
+  float: right;
+  opacity: 0.5;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-right: 100;
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 14px;
+}

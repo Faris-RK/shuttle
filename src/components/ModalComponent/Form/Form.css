@@ -1,0 +1,158 @@
+.login-title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 39px;
+  color: #092c4c;
+}
+
+.footer-text {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 14px;
+  /* identical to box height, or 117% */
+
+  text-align: center;
+  letter-spacing: 0.02em;
+  color: #092c4c;
+}
+
+.footer-text span {
+  font-family: "Monsterrat", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #0f5996;
+  font-size: 14px;
+  line-height: 14px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: rgba(15, 89, 150, 1) !important;
+
+  height: 48px;
+
+  text-align: center;
+
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  margin-top: 36px;
+
+  background: #0f5996;
+  border-radius: 8px;
+
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+::placeholder {
+  color: #abb3bb !important;
+}
+
+.form-group {
+  text-align: center;
+
+  border: 0.7px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  margin-bottom: 18px;
+}
+
+.form-control {
+  border-radius: 8px;
+  height: 48px;
+}
+.modal-image {
+  width: 413px;
+  height: 785px;
+  left: 0px;
+  top: 0px;
+  background: url("../../../assets/busmodal.png");
+}
+.modal-image-container {
+  position: relative;
+  z-index: 1;
+}
+
+.logo-modal {
+  display: inline-block;
+  margin-top: 78px;
+  margin-bottom: 8px;
+}
+.logo-title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 31.0229px;
+  line-height: 38px;
+}
+.text-logo-modal {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: #ffff;
+}
+
+.or {
+  margin-top: 34px;
+  margin-bottom: 18px;
+  width: 295px;
+  height: 17px;
+}
+
+.flex-container {
+  display: flex;
+  height: 100%;
+}
+
+.modal-left {
+  position: relative;
+  flex: 0 0 413px;
+  text-align: center;
+  background: url("../../../assets/busmodal.png");
+  background-size: cover;
+  background-position: -10%;
+}
+.image-overlay {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  background: rgba(35, 35, 35, 1);
+  opacity: 0.3;
+}
+
+.modal-right {
+  position: relative;
+  text-align: center;
+  padding-top: 69px;
+  padding-bottom: 50px;
+  padding-inline: 60px;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.close-logo {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.login-fb {
+  margin-left: 17px;
+  flex: 1;
+}
+.login-google {
+  flex: 1;
+}
+.login-socmed-container {
+  margin-bottom: 64px;
+  display: flex;
+  justify-content: center;
+}

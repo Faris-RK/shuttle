@@ -3,7 +3,7 @@ import styles from "./SearchBus.module.css";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Box from "@mui/material/Box";
+// import Box from "@mui/material/Box";
 import Fab from "@mui/material/Fab";
 import SortIcon from "@mui/icons-material/Sort";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";

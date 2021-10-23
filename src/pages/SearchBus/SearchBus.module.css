@@ -1,104 +1,181 @@
-.depatureWrapper{
-    background-color: #CBFFCA;
-    color: #092C4C;
-    width: 90%;
-    margin: 25px auto;
-    padding: 20px 0px 10px 50px;
-    text-align: left;
-    border-radius: 10px;
-}
-.titleDepature{
-    font-size: 30px;
-}
-.filterContainer{
-    display: flex;
-    /* border: solid; */
-    margin: 25px auto;
-    justify-content:space-between;
-    width: 90%;
-    padding: 0px 0px 100px;
-}
-.filterTitle{
-    font-size: 30px;
-    text-align: center;
-    color: #092C4C;
-}
-.filterWrapper{
-    background-color: rgb(255, 255, 255);
-    border:1px solid #0000002A;
-    border-radius: 5px;
-    width: 300px ;
-    /* position: relative; */
-    /* margin: 25px auto; */
-    padding: 20px 0px 20px 0px;
-    text-align: left;
+/* .Container{
+  border: solid;
+} */
+.depatureWrapper {
+  background-color: #cbffca;
+  color: #092c4c;
+  width: 1220px;
+  margin-left: 80px;
+  padding: 20px 0px 10px 50px;
+  text-align: left;
+  border-radius: 10px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0px 0px 5px 0px #0000001A;
+
 }
 
-.titleSide{
-    color: #ffff;
-    display: flex;
-    justify-content: space-between;
-    font-size: 15px;
-    width: 80%;
-    align-items: center;
-    margin: 25px;
+.searchBarWrapper{
+  width: 90%;
+  margin: 25px auto;
+  padding: 20px 0px 10px 50px;
 }
-.titleWrap{
-    background-color: #0F5996;
+.titleDepature {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+ 
+
+  /* 4 */
+
+  color: #092c4c;
 }
-.titleSide p{
-    align-items: center;
-    /* border: solid black; */
-    padding-top: 15px;
+.depatureWrapper p {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
 }
-.schaduleWrap{
-    width: 80%;
-    margin: 10px auto;
-    color: #092C4C;
+.filterContainer {
+  display: flex;
+  /* border: solid; */
+  margin: 25px auto;
+  /* justify-content: space-between; */
+  gap: 20px;
+  width: 90%;
+  padding: 0px 0px 100px;
 }
-.DescContainer{
-    /* border: solid; */
-    width: 77%;
-    
+.filterTitle {
+  font-size: 18px;
+  text-align: center;
+  color: #092c4c;
+  font-family: "Montserrat", sans-serif;
 }
-.btnSort{
-    width: 150px;
-    height: 60;
-    border-radius: 50px;
-    float: right;
-    margin-top: 10px;
-    background-color: #0F5996;
-    color: #ffff;
+.filterWrapper {
+  background-color: rgb(255, 255, 255);
+  /* border: 1px solid #0000002a; */
+  box-shadow: 0px 0px 5px 0px #0000001A;
+
+  border-radius: 5px;
+  width: 246px;
+  /* position: relative; */
+  /* margin: 25px auto; */
+  padding: 20px 0px 20px 0px;
+  text-align: left;
 }
 
-.DescWrapper{
-    border:1px solid #0000002A;
-    margin-top: 80px;
+.titleSide {
+  color: #ffff;
+  display: flex;
+  justify-content: space-between;
+  font-size: 15px;
+  width: 80%;
+  align-items: center;
+  margin: 25px;
+}
+.titleWrap {
+  background-color: #0f5996;
+}
+.titleSide p {
+  align-items: center;
+  /* border: solid black; */
+  padding-top: 15px;
+}
+.schaduleWrap {
+  width: 80%;
+  margin: 10px auto;
+  color: #092c4c;
+}
+.DescContainer {
+  /* border: solid; */
+  width: 950px;
+}
+.btnArrow{
+  text-align: center;
+}
+.btnSort {
+  width: 150px;
+  height: 60;
+  border-radius: 50px;
+  float: right;
+  margin-top: 10px;
+ 
+  /* color: #ffff; */
+}
+
+.DescWrapper {
+  /* border: 1px solid #0000002a; */
+  box-shadow: 0px 0px 5px 0px #0000001A;
+  margin-top: 80px;
+  text-align: left;
+  display: flex;
+  padding: 10px 15px 10px 15px;
+  justify-content: space-between;
+  align-items: center;
+}
+.titleDescription {
+  font-size: 30px;
+  color: #092c4c;
+}
+.descClass {
+  font-size: 20px;
+  color: #abb3bb;
+}
+.descPrice {
+  color: #0f5996;
+  font-size: 30px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+}
+.btnBook {
+  width: 190px;
+  height: 41px;
+  background-color: #0f5996;
+  color: #ffff;
+  border-radius: 10px;
+  margin-top: -10px;
+}
+.dropdownctn {
+  display: block;
+  position: absolute;
+  background-color: #ffffff;
+  min-width: 320px;
+  color: #092C4C;
+  box-shadow: 0px 0px 5px 0px #0000001A;
+  top: 496px;
+  right: 18.1%;
+  z-index: 8;
+  border-radius: 8px;
+}
+.dropdownNone {
+  display: none;
+}
+.titleDropdown{
+    font-size: 19px;
+    width: 320px;
+    padding: 15px 19px ;
+    font-family: "Montserrat", sans-serif;
     text-align: left;
-    display: flex;
-    padding: 10px 15px 10px 15px;
-    justify-content: space-between;
-    align-items: center;
+    line-height: 17px;
+    vertical-align: top;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #D0D0D0;
+
 }
-.titleDescription{
-    font-size: 30px;
-    color: #092C4C;
+.radioButtonsGroup{
+  padding: 15px 19px ;
 }
-.descClass{
-    font-size: 20px;
-    color: #ABB3BB;
-}
-.descPrice{
-    color: #0F5996;
-    font-size: 30px;
-    margin-top: 20px;
-    margin-bottom: -10px;
-}
-.btnBook{
-    width: 190px;
-    height: 41px;
-    background-color:#0F5996;
-    color: #ffff;
-    border-radius: 10px;
-    margin-top: -10px;
+
+.btnDropdown{
+  width: 294px;
+  height: 42px;
+  border-radius: 8px;
+  background-color: #0F5996;
+  color: #ffffff;
+  border: none;
 }

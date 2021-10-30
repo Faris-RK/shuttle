@@ -58,7 +58,7 @@ export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
   };
 
   if (isLoggedIn) {
-    return <Redirect to="/profile" />;
+    return <Redirect to="/" />;
   }
   return (
     <div className="flex-container">

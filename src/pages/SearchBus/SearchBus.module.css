@@ -4,27 +4,22 @@
 .depatureWrapper {
   background-color: #cbffca;
   color: #092c4c;
-  width: 1220px;
-  margin-left: 80px;
+  margin: 41px -50px 41px -50px;
   padding: 20px 0px 10px 50px;
   text-align: left;
   border-radius: 10px;
   font-family: "Montserrat", sans-serif;
-  box-shadow: 0px 0px 5px 0px #0000001A;
-
+  box-shadow: 0px 0px 5px 0px #0000001a;
 }
 
-.searchBarWrapper{
-  width: 90%;
-  margin: 25px auto;
-  padding: 20px 0px 10px 50px;
+.searchBarWrapper {
+  margin-top: 121px;
 }
 .titleDepature {
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
   line-height: 24px;
- 
 
   /* 4 */
 
@@ -46,8 +41,9 @@
   /* border: solid; */
   margin: 25px auto;
   /* justify-content: space-between; */
-  gap: 20px;
-  width: 90%;
+  gap: 24px;
+  margin-inline: -50px;
+
   padding: 0px 0px 100px;
 }
 .filterTitle {
@@ -59,7 +55,7 @@
 .filterWrapper {
   background-color: rgb(255, 255, 255);
   /* border: 1px solid #0000002a; */
-  box-shadow: 0px 0px 5px 0px #0000001A;
+  box-shadow: 0px 0px 5px 0px #0000001a;
 
   border-radius: 5px;
   width: 246px;
@@ -95,7 +91,7 @@
   /* border: solid; */
   width: 950px;
 }
-.btnArrow{
+.btnArrow {
   text-align: center;
 }
 .btnSort {
@@ -104,13 +100,13 @@
   border-radius: 50px;
   float: right;
   margin-top: 10px;
- 
+
   /* color: #ffff; */
 }
 
 .DescWrapper {
   /* border: 1px solid #0000002a; */
-  box-shadow: 0px 0px 5px 0px #0000001A;
+  box-shadow: 0px 0px 5px 0px #0000001a;
   margin-top: 80px;
   text-align: left;
   display: flex;
@@ -119,11 +115,26 @@
   align-items: center;
 }
 .titleDescription {
-  font-size: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+
+  /* 4 */
+
   color: #092c4c;
 }
 .descClass {
-  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 3 */
+
   color: #abb3bb;
 }
 .descPrice {
@@ -145,8 +156,8 @@
   position: absolute;
   background-color: #ffffff;
   min-width: 320px;
-  color: #092C4C;
-  box-shadow: 0px 0px 5px 0px #0000001A;
+  color: #092c4c;
+  box-shadow: 0px 0px 5px 0px #0000001a;
   top: 496px;
   right: 18.1%;
   z-index: 8;
@@ -155,27 +166,26 @@
 .dropdownNone {
   display: none;
 }
-.titleDropdown{
-    font-size: 19px;
-    width: 320px;
-    padding: 15px 19px ;
-    font-family: "Montserrat", sans-serif;
-    text-align: left;
-    line-height: 17px;
-    vertical-align: top;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #D0D0D0;
-
+.titleDropdown {
+  font-size: 19px;
+  width: 320px;
+  padding: 15px 19px;
+  font-family: "Montserrat", sans-serif;
+  text-align: left;
+  line-height: 17px;
+  vertical-align: top;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #d0d0d0;
 }
-.radioButtonsGroup{
-  padding: 15px 19px ;
+.radioButtonsGroup {
+  padding: 15px 19px;
 }
 
-.btnDropdown{
+.btnDropdown {
   width: 294px;
   height: 42px;
   border-radius: 8px;
-  background-color: #0F5996;
+  background-color: #0f5996;
   color: #ffffff;
   border: none;
 }

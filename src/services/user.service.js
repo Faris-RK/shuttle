@@ -3,6 +3,11 @@ import authHeader from "./auth-header";
 
 const API_URL = "https://final-project-shuttle.herokuapp.com/";
 
+export const searchBus =  () => {
+ 
+  return axios.get(API_URL + "search")
+}
+
 export const getPublicContent = () => {
   return axios.get(API_URL + "all");
 };

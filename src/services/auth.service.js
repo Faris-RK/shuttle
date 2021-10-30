@@ -2,21 +2,29 @@ import axios from "axios";
 
 const API_URL = "https://final-project-shuttle.herokuapp.com/";
 
+export const searchShuttle = () => {
+  return axios.get(API_URL + "search/shuttle");
+};
+
+export const searchBus = (params) => {
+  return axios.get(API_URL + "search", { params });
+};
+
 export const register = (
-  username,
+  fullname,
   email,
-  password,
   birthday,
-  profile_picture,
-  role
+  password,
+
+  roles
 ) => {
   return axios.post(API_URL + "user/register", {
-    username,
+    fullname,
     email,
-    password,
     birthday,
-    profile_picture,
-    role,
+    password,
+
+    roles,
   });
 };
 

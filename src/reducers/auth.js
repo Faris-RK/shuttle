@@ -4,7 +4,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-} from "../actions/types";
+} from "../redux/actions/types";
 
 const user = JSON.parse(localStorage.getItem("user"));
 

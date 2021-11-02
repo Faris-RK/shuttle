@@ -7,7 +7,6 @@ import MiniLogo from "../../../assets/bus-mini.png";
 import UserLogo from "../../../assets/user.png";
 import FocusTrap from "focus-trap-react";
 
-
 function ModalSigninChoice({
   onClickOutside,
   onKeyDown,
@@ -41,13 +40,16 @@ function ModalSigninChoice({
               <hr className="line" />
               <p className="text-footer">Choose Sign in</p>
               <div className="sign-in-container">
-                <button className="sign-vendor">
+                <button
+                  className="sign-vendor"
+                  onClick={() => showModal("form", "login", "bus_provider")}
+                >
                   <img className="mini-logo" src={MiniLogo} alt=""></img>
                   Sign in as Bus Vendor
                 </button>
 
                 <button
-                  className='sign-user'
+                  className="sign-user"
                   onClick={() => showModal("form", "login")}
                 >
                   <img className="user-logo" src={UserLogo} alt="" />

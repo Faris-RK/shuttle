@@ -20,7 +20,6 @@ export const RegisterForm = ({
   formSetting,
 }) => {
   const form = useRef();
-  const dateFormat = "YYYY-MM-DD";
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,11 +46,6 @@ export const RegisterForm = ({
   const onChangePassword = (e) => {
     const password = e.target.value;
     setPassword(password);
-  };
-  const onChangeBirthday = (date, dateString) => {
-    // console.log(dateString);
-    const birthday = dateString;
-    setBirthday(birthday);
   };
 
   const handleRegister = (e) => {

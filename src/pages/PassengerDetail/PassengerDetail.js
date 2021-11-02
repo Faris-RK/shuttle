@@ -123,11 +123,11 @@ export default function PassengersDetail() {
             </div>
           </div>
         </div>
-        <div className="passenger-detail-form">
+        {/* <div className="passenger-detail-form">
           <div className="header">
             <div className="title-detail-form">Passenger Detail</div>
-          </div>
-          <div className="passenger-1">Passenger 1</div>
+          </div> */}
+          {/* <div className="passenger-1">Passenger 1</div>
           <Box
             component="form"
             sx={{
@@ -181,9 +181,9 @@ export default function PassengersDetail() {
                 </div>
               </div>
             </div>
-          </Box>
-          <button className="select-seat-button">Select Seat</button>
-        </div>
+          </Box> */}
+          {/* <button className="select-seat-button">Select Seat</button>
+        </div> */}
 
         {/* seat UI */}
 
@@ -348,10 +348,10 @@ export default function PassengersDetail() {
         </div> */}
 
         {/* order detail */}
-        {/* <div className="order-detai-container">
+        <div className="order-detai-container">
           <img className="orderdetail-image" src={orderDetail} alt="" />
           <button className="book-now">Book now</button>
-        </div> */}
+        </div>
       </div>
     </div>
   );

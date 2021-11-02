@@ -6,19 +6,18 @@ import reportWebVitals from "./reportWebVitals";
 import "antd/dist/antd.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
-
 import "react-datepicker/dist/react-datepicker.css";
 
 import { applyMiddleware, createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 
-import userReducer from "./redux/reducer";
+import rootReducer from "./reducers";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(
-  userReducer,
+  rootReducer,
   composeEnhancers(applyMiddleware(thunk))
 );
 ReactDOM.render(

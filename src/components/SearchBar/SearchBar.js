@@ -3,8 +3,6 @@ import "./SearchBar.css";
 import Arrow from "../../assets/arrow.png";
 import { Select, DatePicker } from "antd";
 import { searchShuttle } from "../../services/auth.service";
-import moment from "moment";
-import { useDispatch } from "react-redux";
 import { searchBus } from "../../services/auth.service";
 
 const dateFormat = "ddd, DD MMM YYYY";
@@ -17,18 +15,12 @@ function SearchBar() {
   const [arrivalTerminal, setArrivalTerminal] = useState("");
   const [passenger, setPassenger] = useState("");
 
-  const dispatch = useDispatch("");
-
   useEffect(() => {
     searchShuttle().then((response) => {
       setShuttles(response?.data?.data);
+      console.log(response?.data?.data);
     });
   }, []);
-
-  const onChangeArrivalDate = (date, dateString) => {
-    const ArrivalDate = dateString;
-    setArrivalDate(ArrivalDate);
-  };
 
   const onChangeDepartureTerminal = (value) => {
     console.log(value);
@@ -96,13 +88,6 @@ function SearchBar() {
                 );
               })}
             </Select>
-            {/* <input
-              type="text"
-              name="search"
-              className="form-control input"
-              id="from"
-              placeholder="Search place"
-            /> */}
           </div>
           <div className="arrow">
             <img src={Arrow} alt=""></img>
@@ -137,14 +122,6 @@ function SearchBar() {
                 );
               })}
             </Select>
-
-            {/* <input
-              type="text"
-              name="search"
-              className="form-control input"
-              id="from"
-              placeholder="Search place"
-            /> */}
           </div>
           <div className="form-group form-2">
             <label htmlFor="date">Departure Date</label>
@@ -154,13 +131,6 @@ function SearchBar() {
               onChange={(date) => setDepartureDate(date)}
               value={departureDate}
             />
-
-            {/* <input
-              type="date"
-              name="date"
-              className="form-control input"
-              id="date"
-            /> */}
           </div>
           <div className="form-group form-3">
             <label htmlFor="date">Return Date</label>
@@ -175,7 +145,6 @@ function SearchBar() {
             <label htmlFor="passenger">Passenger</label>
             <Select
               onChange={onChangePassenger}
-              className="form-control input"
               showSearch
               placeholder="Search to Select"
               optionFilterProp="children"
@@ -195,13 +164,6 @@ function SearchBar() {
                 2 Passenger
               </Option>
             </Select>
-            {/* <input
-              type="text"
-              name="passenger"
-              className="form-control input"
-              id="passenger"
-              placeholder="Select passenger"
-            /> */}
           </div>
 
           <button className="search-button">Search</button>

@@ -118,7 +118,6 @@
   text-align: center;
   background: url("../../../assets/busmodal.png");
   background-size: cover;
-  background-position: -10%;
 }
 .image-overlay {
   position: absolute;

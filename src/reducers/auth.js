@@ -1,18 +1,21 @@
+import jwt from "jwt-decode";
 import {
   REGISTER_SUCCESS,
   REGISTER_FAIL,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
-} from "../redux/actions/types";
+} from "../actions/types";
+import { store } from "../services/auth.service";
 
-const user = JSON.parse(localStorage.getItem("user"));
+const token = store.getItem("user");
 
-const initialState = user
-  ? { isLoggedIn: true, user }
-  : { isLoggedIn: false, user: null };
+const initialState = {
+  isLoggedIn: !!token,
+  user: token ? jwt(token) : {},
+};
 
-export default function auth (state = initialState, action) {
+export default function auth(state = initialState, action) {
   const { type, payload } = action;
 
   switch (type) {

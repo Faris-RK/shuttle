@@ -19,7 +19,13 @@ const required = (value) => {
   }
 };
 
-export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
+export const LoginForm = ({
+  props,
+  onSubmit,
+  changeFormType,
+  closeModal,
+  formSetting,
+}) => {
   const form = useRef();
 
   const [email, setEmail] = useState("");
@@ -46,20 +52,18 @@ export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
 
     setLoading(true);
 
-    dispatch(login(email, password))
+    dispatch(login(email, password, formSetting.userType))
       .then(() => {
-        // props.history.push("/profile");
-        // window.location.reload();
+        props.history.push("/");
+        window.location.reload();
         setLoading(false);
       })
       .catch(() => {
         setLoading(false);
       });
   };
+  console.log(formSetting);
 
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
   return (
     <div className="flex-container">
       {/* modal gambar kiri */}
@@ -86,7 +90,12 @@ export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
             alt=""
             onClick={closeModal}
           />
-          <div className="login-title">Sign In to Shuttle</div>
+          <div className="login-title">
+            {" "}
+            {formSetting.userType === "bus_provider"
+              ? "Sign in as Bus Vendor"
+              : "Sign in to Shuttle"}
+          </div>
           <br />
           <div className="form-group">
             <input

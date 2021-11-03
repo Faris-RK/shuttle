@@ -1,4 +1,5 @@
 import axios from "axios";
+export const store = window.localStorage;
 
 const API_URL = "https://final-project-shuttle.herokuapp.com/";
 
@@ -42,8 +43,8 @@ export const login = (email, password) => {
       password,
     })
     .then((response) => {
-      if (response.data.accessToken) {
-        localStorage.setItem("user", JSON.stringify(response.data));
+      if (response.data) {
+        store.setItem("user", response.data.token);
       }
 
       return response.data;
@@ -54,5 +55,5 @@ export const login = (email, password) => {
 };
 
 export const logout = () => {
-  localStorage.removeItem("user");
+  store.removeItem("user");
 };

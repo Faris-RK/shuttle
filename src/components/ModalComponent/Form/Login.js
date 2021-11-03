@@ -32,7 +32,7 @@ export const LoginForm = ({
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { isLoggedIn } = useSelector((state) => state);
+  // const { isLoggedIn } = useSelector((state) => state);
   const { message } = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -143,13 +143,6 @@ export const LoginForm = ({
             Don't Have an Account?{" "}
             <span onClick={() => changeFormType("register")}>Sign Up</span>
           </div>
-          {message && (
-            <div className="form-group">
-              <div className="alert alert-danger" role="alert">
-                {message}
-              </div>
-            </div>
-          )}
         </form>
       </div>
     </div>

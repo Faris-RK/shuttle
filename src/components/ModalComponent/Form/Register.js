@@ -65,7 +65,7 @@ export const RegisterForm = ({
       });
   };
   console.log(formSetting);
-
+ 
   return (
     <div className="flex-container auth-form">
       {/* modal gambar kiri */}
@@ -163,18 +163,7 @@ export const RegisterForm = ({
             Already Have an Account?{" "}
             <span onClick={() => changeFormType("login")}>Sign In</span>
           </div>
-          {message && (
-            <div className="form-group">
-              <div
-                className={
-                  successful ? "alert alert-success" : "alert alert-danger"
-                }
-                role="alert"
-              >
-                {message}
-              </div>
-            </div>
-          )}
+        
         </form>
       </div>
     </div>

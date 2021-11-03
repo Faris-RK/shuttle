@@ -18,7 +18,6 @@ function SearchBar() {
   useEffect(() => {
     searchShuttle().then((response) => {
       setShuttles(response?.data?.data);
-     
     });
   }, []);
 
@@ -38,17 +37,17 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    console.log(departureDate);
     const params = {
       departure_shuttle_id: departureTerminal,
       arrival_shuttle_id: arrivalTerminal,
-      departure_date: "2021-10-29",
-      return_date: "2021-10-25",
+      departure_date: departureDate.format("YYYY-MM-DD"),
+      return_date: arrivalDate.format("YYYY-MM-DD"),
       passenger: 1,
       order_type: "RoundTrip",
     };
-    searchBus(params).then((response) => {
-    
-    });
+    searchBus(params).then((response) => {});
+    console.log(params.departure_date);
   };
   const { Option } = Select;
   return (

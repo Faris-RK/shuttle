@@ -47,7 +47,7 @@ function Navbar({ showModal }) {
               <li>Check Booking</li>
             </ul>
           </div>
-          {/* <div className={styles.btnContainer}>
+          <div className={styles.btnContainer}>
             <button
               className={styles.btnSignin}
               onClick={() => showModal("choiceSignIn")}
@@ -61,12 +61,12 @@ function Navbar({ showModal }) {
             >
               Sign Up
             </button>
-          </div> */}
+          </div>
 
           {/* <button className={styles.btnSignup}>Sign Up</button>{" "} */}
           {/* DROPDOWN ============================================== */}
 
-          <div className={styles.ContainerDropdown} onClick={dropDown}>
+          {/* <div className={styles.ContainerDropdown} onClick={dropDown}>
             <img src={logoUser} />
             <p>Sandi</p>
             <img src={logoDropdown} />
@@ -104,7 +104,7 @@ function Navbar({ showModal }) {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
         </nav>
       </div>
     </React.Fragment>

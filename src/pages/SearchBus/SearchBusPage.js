@@ -15,6 +15,7 @@ import SortIcon from "@mui/icons-material/Sort";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
 import { Provider } from "react-redux";
+import { useLocation } from "react-router-dom";
 
 function SearchBus() {
   //  State          ===========================================//
@@ -22,19 +23,22 @@ function SearchBus() {
   const [arrivalValue, setArrivalValue] = useState([]);
   const [departureValue, setDepartureValue] = useState([]);
   const [departureTimeList, setDepartureTimeList] = useState([]);
+  const location = useLocation();
+  console.log(location);
 
   //  UseEffect      ===========================================//
   useEffect(() => {
-    const params = {
-      departure_shuttle_id: "f9fafe16-544f-4928-8ed2-6bebc30e0b5a",
-      arrival_shuttle_id: "81cefdf4-370b-4201-8d5e-816b2fea8d8a",
-      departure_date: "2021-10-29",
-      return_date: "2021-10-25",
-      passenger: 1,
-      order_type: "RoundTrip",
-      time: `${departureValue}`,
-    };
-    searchBus(params).then((response) => {
+    // const params = {
+    //   departure_shuttle_id: "f9fafe16-544f-4928-8ed2-6bebc30e0b5a",
+    //   arrival_shuttle_id: "81cefdf4-370b-4201-8d5e-816b2fea8d8a",
+    //   departure_date: "2021-10-29",
+    //   return_date: "2021-10-25",
+    //   passenger: 1,
+    //   order_type: "RoundTrip",
+    //   time: `${departureValue}`,
+    // };
+    // console.log(location.state.data)
+    searchBus(location.state ? location.state.data : {}).then((response) => {
       setShuttle(response?.data?.departure);
       setDepartureTimeList(response?.data?.departure);
       console.log(response.data.departure);

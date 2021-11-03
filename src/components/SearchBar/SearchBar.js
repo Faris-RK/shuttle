@@ -4,8 +4,10 @@ import Arrow from "../../assets/arrow.png";
 import { Select, DatePicker } from "antd";
 import { searchShuttle } from "../../services/auth.service";
 import { searchBus } from "../../services/auth.service";
+import { useHistory } from "react-router-dom";
 
 const dateFormat = "ddd, DD MMM YYYY";
+
 
 function SearchBar() {
   const [shuttles, setShuttles] = useState([]);
@@ -14,7 +16,8 @@ function SearchBar() {
   const [departureTerminal, setDepartureTerminal] = useState("");
   const [arrivalTerminal, setArrivalTerminal] = useState("");
   const [passenger, setPassenger] = useState("");
-
+  const history = useHistory()
+  
   useEffect(() => {
     searchShuttle().then((response) => {
       setShuttles(response?.data?.data);
@@ -37,17 +40,29 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(departureDate);
+ 
     const params = {
       departure_shuttle_id: departureTerminal,
       arrival_shuttle_id: arrivalTerminal,
-      departure_date: departureDate.format("YYYY-MM-DD"),
-      return_date: arrivalDate.format("YYYY-MM-DD"),
+      departure_date: departureDate ? departureDate.format("YYYY-MM-DD") : "" ,
+      return_date: arrivalDate ? arrivalDate.format("YYYY-MM-DD") : "" ,
       passenger: 1,
       order_type: "RoundTrip",
     };
-    searchBus(params).then((response) => {});
-    console.log(params.departure_date);
+    
+    history.push({
+      pathname: '/SearchBus',
+      // search: '?update=true',  // query string
+      state: {  // location state
+        data:params, 
+      },
+    }); 
+    // dispatch(saveSearchParams())
+
+
+    // simpan data dari variable params ke redux
+    // redirect ke halaman search
+  
   };
   const { Option } = Select;
   return (

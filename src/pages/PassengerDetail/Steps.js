@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 
 import { Steps, Button, message } from "antd";
-
+import Content1 from './content1'
+import Content2 from './content2'
+import Content3 from "./content3";
+ 
 const { Step } = Steps;
 
 const steps = [
   {
     title: "First",
-    content: "First-content",
+    content: <Content1 />,
   },
   {
     title: "Second",
-    content: "Second-content",
+    content: <Content2 />,
   },
   {
     title: "Last",
-    content: "Last-content",
+    content: <Content3 />,
   },
 ];
 
@@ -31,7 +34,7 @@ export default function StepsBar() {
   };
 
   return (
-    <>
+    <div>
       <Steps current={current}>
         {steps.map((item) => (
           <Step key={item.title} title={item.title} />
@@ -58,6 +61,6 @@ export default function StepsBar() {
           </Button>
         )}
       </div>
-    </>
+    </div>
   );
 }

@@ -1,0 +1,24 @@
+.container {
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  width: 500px;
+  height: 262px;
+  margin-right: 227;
+}
+
+.MuiListItemButton {
+  background-color: #0f5996 !important;
+  width: 250px;
+  height: 57px;
+}
+.listtext {
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+.img {
+  margin-right: 5px;
+}

@@ -11,7 +11,6 @@ function ModalSigninChoice({
   onClickOutside,
   onKeyDown,
   modalRef,
-
   closeModal,
   showModal,
 }) {

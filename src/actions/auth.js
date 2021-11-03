@@ -9,6 +9,7 @@ import {
 
 import * as AuthService from "../services/auth.service";
 
+// Search Bar ==========================================
 export const searchBus =
   (
     departure_shuttle_id,
@@ -16,8 +17,7 @@ export const searchBus =
     departure_date,
     return_date,
     passenger,
-    order_type,
-   
+    order_type
   ) =>
   (dispatch) => {
     return AuthService.searchBus(
@@ -26,8 +26,7 @@ export const searchBus =
       departure_date,
       return_date,
       passenger,
-      order_type,
-      
+      order_type
     );
   };
 

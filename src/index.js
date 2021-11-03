@@ -3,6 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "antd/dist/antd.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "react-modern-calendar-datepicker/lib/DatePicker.css";
+
+import "react-datepicker/dist/react-datepicker.css";
+
 import { applyMiddleware, createStore, compose } from "redux";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";

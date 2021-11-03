@@ -5,11 +5,12 @@
   padding-top: 85px;
   margin-top: -85px;
   width: 100%;
+  height: 800px;
 }
 
 .HomePageContainer {
   margin-top: 85.5px;
-  width: 578px;
+
   margin-left: 20px;
   /* margin: 110px 135px auto; */
   /* float: left; */
@@ -37,6 +38,7 @@
 .textBusDesc {
   text-align: left;
   margin-top: 40px;
+  width: 578px;
 }
 
 .imgBanner {

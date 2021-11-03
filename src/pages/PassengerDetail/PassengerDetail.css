@@ -1,0 +1,506 @@
+.detail-info {
+  width: 323px;
+  height: 874px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-bottom: 139px;
+
+  margin-right: 0px;
+  padding-top: 24px;
+}
+.detail-info-header {
+  display: flex;
+  align-items: center;
+  margin-left: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin-bottom: 14px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.bus-logo-pd {
+  margin-right: 20px;
+}
+
+.line-1-pd {
+  width: 323px;
+  border: 0.5px solid #abb3bb;
+  margin: 0px !important;
+}
+.date-schedule-detail {
+  margin-bottom: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.pt-scedule-detail {
+  margin-bottom: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.bus-class-schedule-detail {
+  margin-bottom: 24px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  /* identical to box height */
+
+  /* 3 */
+
+  color: #abb3bb;
+}
+.schedule-detail-title {
+  margin-bottom: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.container-schedule-detail {
+  display: flex;
+}
+.departure-time-schedule-detail {
+  margin-right: 26px;
+  margin-bottom: 64px;
+}
+
+.container-time-schedule-detail {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+
+.city-departure-schedule-detail .city-1,
+.city-departure-schedule-detail .city-2 {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.line-down-schedule-detail {
+  margin-right: 12px;
+}
+.city-departure-schedule-detail .terminal-1,
+.terminal-2 {
+  margin-bottom: 30px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+
+  /* 3 */
+
+  color: #abb3bb;
+}
+.container-all-detail {
+  margin-left: 24px;
+  margin-top: 24px;
+}
+
+.detail-info-header .city-1 {
+  margin-right: 9px;
+}
+.repeat-logo {
+  margin-right: 9px;
+}
+
+.total-passenger-container .title {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.total-passenger-container .total-passenger {
+  margin-top: 14px;
+  margin-bottom: 35px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+
+  display: flex;
+  align-items: center;
+}
+.total-passenger-container .total-passenger .number {
+  margin-left: 14px;
+}
+.container-detail-info-form {
+  display: flex;
+  margin-top: 24px;
+  gap: 24px;
+}
+
+.passenger-detail-form {
+  width: 693px;
+  height: 277px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.passenger-detail-form .header {
+  width: 693px;
+  height: 60px;
+
+  /* 6 */
+
+  background: #cbffca;
+}
+
+.title-detail-form {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  padding-block: 20px;
+  padding-left: 32px;
+}
+
+.stepbar {
+  margin-left: -8px;
+}
+
+.text-field {
+  border: 0.7px solid #d0d0d0;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.passenger-1 {
+  margin-top: 16px;
+  margin-left: 32px;
+  margin-bottom: 26px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+.passenger-detail-form .fullname,
+.passenger-detail-form .age {
+  margin-bottom: 8px;
+}
+
+.passenger-detail-form .form-container {
+  display: flex;
+}
+
+.select-seat-button {
+  margin-top: 42px;
+  margin-left: 450px;
+  background: #0f5996;
+  color: #fff;
+  opacity: 0.5;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border-style: none;
+  width: 243px;
+  height: 48px;
+}
+
+.guide-seat-icon {
+  width: 153px;
+  margin-left: 48px;
+
+  /* 1 */
+
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.listed-seat-icon {
+  list-style: none;
+  padding-inline-start: 24px;
+  margin-bottom: 24px;
+}
+.listed-seat-icon .icon-1 {
+  margin-top: 24px;
+}
+.listed-seat-icon .icon-2,
+.listed-seat-icon .icon-3 {
+  margin-top: 20px;
+}
+
+.listed-seat-icon .icon-3 {
+  margin-bottom: 24px;
+}
+
+.departure-seat-header {
+  margin-bottom: 24px;
+  width: 693px;
+  height: 60px;
+
+  /* 6 */
+
+  background: #cbffca;
+}
+
+.departure-seat-header .title {
+  padding-top: 20px;
+  margin-left: 32px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+
+.seat-content .seat-card {
+  width: 284px;
+  height: 617px;
+
+  /* 1 */
+
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 8px;
+}
+.seat-content {
+  display: flex;
+  gap: 32px;
+}
+
+.seat-card .driver-icon {
+  margin-left: 239px;
+  margin-top: 23px;
+  margin-bottom: 16px;
+}
+
+.seat-left .seat-row-1 {
+  margin-bottom: 14px;
+  width: 38px;
+  height: 38px;
+
+  background: #ffffff;
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+.seat-left-1-listed {
+  list-style: none;
+  padding-inline-start: 14px;
+}
+.seat-left .seat-row-2 {
+  margin-bottom: 14px;
+  width: 38px;
+  height: 38px;
+
+  background: #ffffff;
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.seat-left-2-listed {
+  list-style: none;
+  padding-inline-start: 16px;
+}
+.seat-left {
+  display: flex;
+}
+.line2 {
+  margin-inline: 35.5px;
+}
+.seat-container {
+  display: flex;
+}
+
+.seat-right-1-listed {
+  list-style: none;
+  padding-inline-start: 0px;
+}
+
+.seat-right .seat-row-3 {
+  margin-bottom: 14px;
+  width: 38px;
+  height: 38px;
+
+  background: #ffffff;
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.seat-right {
+  display: flex;
+}
+.seat-right-2-listed {
+  list-style: none;
+  padding-inline-start: 16px;
+}
+
+.seat-right .seat-row-4 {
+  margin-bottom: 14px;
+  width: 38px;
+  height: 38px;
+
+  background: #ffffff;
+  border: 1px solid #0f5996;
+  box-sizing: border-box;
+  border-radius: 12px;
+}
+
+.departure-seat-container {
+  height: 733px;
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+.continue-payment {
+  width: 243px;
+  height: 48px;
+  margin-top: 48px;
+  margin-left: 450px;
+
+  /* 1 */
+
+  background: #0f5996;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border: none;
+
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+
+.active,
+.seat-row-4:hover,
+.seat-row-3:hover,
+.seat-row-1:hover,
+.seat-row-2:hover {
+  background-color: #3bb44a;
+  color: white;
+}
+
+.orderdetail-image {
+  margin-top: -10px;
+  margin-left: -10px;
+}
+
+.payment-method-container {
+  width: 693px;
+  height: 277px;
+
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.payment-method-container .header {
+  width: 693px;
+  height: 60px;
+
+  /* 6 */
+
+  background: #cbffca;
+}
+
+.payment-method-container .title {
+  padding-top: 20px;
+  margin-left: 32px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  /* identical to box height */
+
+  /* 4 */
+
+  color: #092c4c;
+}
+
+.book-now {
+  width: 243px;
+  height: 48px;
+  margin-left: 450px;
+
+  /* 1 */
+
+  background: #0f5996;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  /* identical to box height */
+
+  color: #ffffff;
+}

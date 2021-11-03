@@ -25,7 +25,7 @@ function Navbar({ showModal }) {
   };
 
   return (
-    <React.Fragment>
+    <div className="container">
       <div className={styles.navbarContainer}>
         <nav>
           <Link to={"/"}>
@@ -107,7 +107,7 @@ function Navbar({ showModal }) {
           </div> */}
         </nav>
       </div>
-    </React.Fragment>
+    </div>
   );
 }
 

@@ -50,7 +50,7 @@ function ModalSigninChoice({
 
                 <button
                   className="sign-user"
-                  onClick={() => showModal("form", "login")}
+                  onClick={() => showModal("form", "login", 'user')}
                 >
                   <img className="user-logo" src={UserLogo} alt="" />
                   Sign in as User

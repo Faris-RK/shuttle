@@ -59,6 +59,7 @@ function SearchBar() {
     });
   };
   const { Option } = Select;
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="button-trip-container">

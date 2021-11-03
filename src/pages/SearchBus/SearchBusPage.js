@@ -36,7 +36,7 @@ function SearchBus() {
     };
     searchBus(params).then((response) => {
       setShuttle(response?.data?.departure);
-      setDepartureTimeList(response?.data?.departure);
+      // setDepartureTimeList(response?.data?.departure);
       console.log(response.data.departure);
     });
   }, []);
@@ -53,7 +53,7 @@ function SearchBus() {
     };
     searchBus(params).then((response) => {
       setShuttle(response?.data?.departure);
-      console.log(response.data.departure);
+      console.log(response.data.departure, "ini data");
     });
   }, [departureValue, arrivalValue]);
 
@@ -230,6 +230,7 @@ function SearchBus() {
             </div>
           </div>
         </div>
+
         <div className={styles.DescContainer}>
           <button className={styles.btnSort} onClick={dropDown}>
             <img src={sortIconSearcPage} />

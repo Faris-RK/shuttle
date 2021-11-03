@@ -3,11 +3,11 @@ import "./SearchBar.css";
 import Arrow from "../../assets/arrow.png";
 import { Select, DatePicker } from "antd";
 import { searchShuttle } from "../../services/auth.service";
-import moment from "moment";
-import { useDispatch } from "react-redux";
 import { searchBus } from "../../services/auth.service";
+import { useHistory } from "react-router-dom";
 
 const dateFormat = "ddd, DD MMM YYYY";
+
 
 function SearchBar() {
   const [shuttles, setShuttles] = useState([]);
@@ -16,19 +16,13 @@ function SearchBar() {
   const [departureTerminal, setDepartureTerminal] = useState("");
   const [arrivalTerminal, setArrivalTerminal] = useState("");
   const [passenger, setPassenger] = useState("");
-
-  const dispatch = useDispatch("");
-
+  const history = useHistory()
+  
   useEffect(() => {
     searchShuttle().then((response) => {
       setShuttles(response?.data?.data);
     });
   }, []);
-
-  const onChangeArrivalDate = (date, dateString) => {
-    const ArrivalDate = dateString;
-    setArrivalDate(ArrivalDate);
-  };
 
   const onChangeDepartureTerminal = (value) => {
     console.log(value);
@@ -46,17 +40,29 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+ 
     const params = {
       departure_shuttle_id: departureTerminal,
       arrival_shuttle_id: arrivalTerminal,
-      departure_date: "2021-10-29",
-      return_date: "2021-10-25",
+      departure_date: departureDate ? departureDate.format("YYYY-MM-DD") : "" ,
+      return_date: arrivalDate ? arrivalDate.format("YYYY-MM-DD") : "" ,
       passenger: 1,
       order_type: "RoundTrip",
     };
-    searchBus(params).then((response) => {
-      console.log(response);
-    });
+    
+    history.push({
+      pathname: '/SearchBus',
+      // search: '?update=true',  // query string
+      state: {  // location state
+        data:params, 
+      },
+    }); 
+    // dispatch(saveSearchParams())
+
+
+    // simpan data dari variable params ke redux
+    // redirect ke halaman search
+  
   };
   const { Option } = Select;
   return (
@@ -96,13 +102,6 @@ function SearchBar() {
                 );
               })}
             </Select>
-            {/* <input
-              type="text"
-              name="search"
-              className="form-control input"
-              id="from"
-              placeholder="Search place"
-            /> */}
           </div>
           <div className="arrow">
             <img src={Arrow} alt=""></img>
@@ -137,14 +136,6 @@ function SearchBar() {
                 );
               })}
             </Select>
-
-            {/* <input
-              type="text"
-              name="search"
-              className="form-control input"
-              id="from"
-              placeholder="Search place"
-            /> */}
           </div>
           <div className="form-group form-2">
             <label htmlFor="date">Departure Date</label>
@@ -154,13 +145,6 @@ function SearchBar() {
               onChange={(date) => setDepartureDate(date)}
               value={departureDate}
             />
-
-            {/* <input
-              type="date"
-              name="date"
-              className="form-control input"
-              id="date"
-            /> */}
           </div>
           <div className="form-group form-3">
             <label htmlFor="date">Return Date</label>
@@ -175,7 +159,6 @@ function SearchBar() {
             <label htmlFor="passenger">Passenger</label>
             <Select
               onChange={onChangePassenger}
-              className="form-control input"
               showSearch
               placeholder="Search to Select"
               optionFilterProp="children"
@@ -195,13 +178,6 @@ function SearchBar() {
                 2 Passenger
               </Option>
             </Select>
-            {/* <input
-              type="text"
-              name="passenger"
-              className="form-control input"
-              id="passenger"
-              placeholder="Select passenger"
-            /> */}
           </div>
 
           <button className="search-button">Search</button>

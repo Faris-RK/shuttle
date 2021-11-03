@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import {  Router, Route, Switch } from "react-router-dom";
 import HomePage from "../pages/Home/HomePage";
 import SearchBus from "../pages/SearchBus/SearchBusPage";
 // import ProfileData from "../components/ProfileAccount/ProfileData";

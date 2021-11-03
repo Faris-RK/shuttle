@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 import "./ModalSignupChoice.css";
 import Logo from "../../../assets/logo-modal.png";
@@ -6,7 +6,6 @@ import Close from "../../../assets/closelogo.png";
 import MiniLogo from "../../../assets/bus-mini.png";
 import UserLogo from "../../../assets/user.png";
 import FocusTrap from "focus-trap-react";
-import { Register } from "../../../actions/auth";
 
 function ModalSignupChoice({
   onClickOutside,

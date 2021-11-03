@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+
 import { login } from "../../../actions/auth";
 import "./Form.css";
 import logomodal from "../../../assets/logo-modal.png";
@@ -19,14 +19,20 @@ const required = (value) => {
   }
 };
 
-export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
+export const LoginForm = ({
+  props,
+  onSubmit,
+  changeFormType,
+  closeModal,
+  formSetting,
+}) => {
   const form = useRef();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const { isLoggedIn } = useSelector((state) => state);
+  // const { isLoggedIn } = useSelector((state) => state);
   const { message } = useSelector((state) => state);
 
   const dispatch = useDispatch();
@@ -46,20 +52,18 @@ export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
 
     setLoading(true);
 
-    dispatch(login(email, password))
+    dispatch(login(email, password, formSetting.userType))
       .then(() => {
-        // props.history.push("/profile");
-        // window.location.reload();
+        props.history.push("/");
+        window.location.reload();
         setLoading(false);
       })
       .catch(() => {
         setLoading(false);
       });
   };
+  console.log(formSetting);
 
-  if (isLoggedIn) {
-    return <Redirect to="/" />;
-  }
   return (
     <div className="flex-container">
       {/* modal gambar kiri */}
@@ -86,7 +90,12 @@ export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
             alt=""
             onClick={closeModal}
           />
-          <div className="login-title">Sign In to Shuttle</div>
+          <div className="login-title">
+            {" "}
+            {formSetting.userType === "bus_provider"
+              ? "Sign in as Bus Vendor"
+              : "Sign in to Shuttle"}
+          </div>
           <br />
           <div className="form-group">
             <input
@@ -134,13 +143,6 @@ export const LoginForm = ({ props, onSubmit, changeFormType, closeModal }) => {
             Don't Have an Account?{" "}
             <span onClick={() => changeFormType("register")}>Sign Up</span>
           </div>
-          {message && (
-            <div className="form-group">
-              <div className="alert alert-danger" role="alert">
-                {message}
-              </div>
-            </div>
-          )}
         </form>
       </div>
     </div>

@@ -195,10 +195,6 @@
   padding: 0px !important;
 }
 
-.form-control.input {
-  width: 152px;
-}
-
 .ant-select-single .ant-select-selector .ant-select-selection-search {
   right: 0px !important;
   left: 0px !important;

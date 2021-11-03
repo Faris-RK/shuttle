@@ -11,7 +11,7 @@ import ModalSignupChoice from "../ModalComponent/ModalSignupChoice/ModalSignupCh
 export default function Layout({ children }) {
   const [modalState, setModalState] = useState({
     isShown: false,
-    formType: "register",
+    formType: "register", // register/login
     userType: "user", // user, vendor
     modalType: "choiceSignIn", //choiceSignIn, choiceSignUp, form
   });
@@ -28,13 +28,14 @@ export default function Layout({ children }) {
     document.querySelector("html").classList.toggle("scroll-lock");
   };
 
-  const showModal = (type, formType) => {
-    console.log ('p')
+  const showModal = (type, formType, userType) => {
+    console.log(userType);
     setModalState({
       ...modalState,
       isShown: true,
       modalType: type,
       formType: formType,
+      userType: userType,
     });
     toggleScrollLock();
   };
@@ -55,7 +56,7 @@ export default function Layout({ children }) {
   };
 
   const onSubmit = () => {};
-  
+
   const renderModalSignin = () => {
     if (modalState.isShown) {
       if (modalState.modalType === "form") {
@@ -86,18 +87,18 @@ export default function Layout({ children }) {
           );
         } else {
           //tampilkan modal sign up
-          return(
-          <ModalSignupChoice
-            closeModal={closeModal}
-            showModal={showModal}
-            modalState={modalState}
-            onSubmit={onSubmit}
-            modalRef={(n) => (modal = n)}
-            onKeyDown={onKeyDown}
-            onClickOutside={onClickOutside}
-            changeFormType={changeFormType}
-          />
-          )
+          return (
+            <ModalSignupChoice
+              closeModal={closeModal}
+              showModal={showModal}
+              modalState={modalState}
+              onSubmit={onSubmit}
+              modalRef={(n) => (modal = n)}
+              onKeyDown={onKeyDown}
+              onClickOutside={onClickOutside}
+              changeFormType={changeFormType}
+            />
+          );
         }
       }
     } else {

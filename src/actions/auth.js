@@ -9,44 +9,73 @@ import {
 
 import * as AuthService from "../services/auth.service";
 
-export const register = (username, email, password) => (dispatch) => {
-  return AuthService.register(username, email, password).then(
-    (response) => {
-      dispatch({
-        type: REGISTER_SUCCESS,
-      });
+// Search Bar ==========================================
+export const searchBus =
+  (
+    departure_shuttle_id,
+    arrival_shuttle_id,
+    departure_date,
+    return_date,
+    passenger,
+    order_type
+  ) =>
+  (dispatch) => {
+    return AuthService.searchBus(
+      departure_shuttle_id,
+      arrival_shuttle_id,
+      departure_date,
+      return_date,
+      passenger,
+      order_type
+    );
+  };
 
-      dispatch({
-        type: SET_MESSAGE,
-        payload: response.data.message,
-      });
+export const register =
+  (fullname, email, password, birthday, roles) => (dispatch) => {
+    return AuthService.register(
+      fullname,
+      email,
+      password,
+      birthday,
 
-      return Promise.resolve();
-    },
-    (error) => {
-      const message =
-        (error.response &&
-          error.response.data &&
-          error.response.data.message) ||
-        error.message ||
-        error.toString();
+      roles
+    ).then(
+      (response) => {
+        dispatch({
+          type: REGISTER_SUCCESS,
+        });
 
-      dispatch({
-        type: REGISTER_FAIL,
-      });
+        dispatch({
+          type: SET_MESSAGE,
+          payload: response.data.message,
+        });
 
-      dispatch({
-        type: SET_MESSAGE,
-        payload: message,
-      });
+        return Promise.resolve();
+      },
+      (error) => {
+        const message =
+          (error.response &&
+            error.response.data &&
+            error.response.data.message) ||
+          error.message ||
+          error.toString();
 
-      return Promise.reject();
-    }
-  );
-};
+        dispatch({
+          type: REGISTER_FAIL,
+        });
 
-export const login = (username, password) => (dispatch) => {
-  return AuthService.login(username, password).then(
+        dispatch({
+          type: SET_MESSAGE,
+          payload: message,
+        });
+
+        return Promise.reject();
+      }
+    );
+  };
+
+export const login = (fullname, password) => (dispatch) => {
+  return AuthService.login(fullname, password).then(
     (data) => {
       dispatch({
         type: LOGIN_SUCCESS,

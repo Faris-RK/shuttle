@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./ModalSignupChoice.css";
 import Logo from "../../../assets/logo-modal.png";
@@ -6,15 +6,19 @@ import Close from "../../../assets/closelogo.png";
 import MiniLogo from "../../../assets/bus-mini.png";
 import UserLogo from "../../../assets/user.png";
 import FocusTrap from "focus-trap-react";
+import { Register } from "../../../actions/auth";
 
 function ModalSignupChoice({
   onClickOutside,
   onKeyDown,
   modalRef,
+  modalState,
 
   closeModal,
   showModal,
 }) {
+  // const { roles, setRoles } = useState("");
+
   return ReactDOM.createPortal(
     <FocusTrap>
       <aside
@@ -40,14 +44,17 @@ function ModalSignupChoice({
               <hr className="line" />
               <p className="text-footer">Choose Sign up</p>
               <div className="sign-in-container">
-                <button className="sign-vendor">
+                <button
+                  className="sign-vendor"
+                  onClick={() => showModal("form", "register", "bus_provider")}
+                >
                   <img className="mini-logo" src={MiniLogo} alt=""></img>
                   Sign up as Bus Vendor
                 </button>
 
                 <button
                   className="sign-user"
-                  onClick={() => showModal("form", "register")}
+                  onClick={() => showModal("form", "register", "user")}
                 >
                   <img className="user-logo" src={UserLogo} alt="" />
                   Sign up as User

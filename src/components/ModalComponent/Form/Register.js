@@ -5,67 +5,38 @@ import closelogo from "../../../assets/closelogo.png";
 import logingoogle from "../../../assets/logingoogle.png";
 import loginfacebook from "../../../assets/loginfacebook.png";
 import or from "../../../assets/or.png";
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
-import { isEmail } from "validator";
+// import { DatePicker } from "antd";
+import DatePicker from "react-datepicker";
+// import DatePicker from "react-modern-calendar-datepicker";
 
 import { register } from "../../../actions/auth";
-const required = (value) => {
-  if (!value) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This field is required!
-      </div>
-    );
-  }
-};
 
-const validEmail = (value) => {
-  if (!isEmail(value)) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        This is not a valid email.
-      </div>
-    );
-  }
-};
-
-const vusername = (value) => {
-  if (value.length < 3 || value.length > 20) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The username must be between 3 and 20 characters.
-      </div>
-    );
-  }
-};
-
-const vpassword = (value) => {
-  if (value.length < 6 || value.length > 40) {
-    return (
-      <div className="alert alert-danger" role="alert">
-        The password must be between 6 and 40 characters.
-      </div>
-    );
-  }
-};
-
-export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
+export const RegisterForm = ({
+  onSubmit,
+  changeFormType,
+  closeModal,
+  formSetting,
+}) => {
   const form = useRef();
-
-  const [username, setUsername] = useState("");
+  const dateFormat = "YYYY-MM-DD";
+  const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [birthday, setBirthday] = useState(null);
   const [successful, setSuccessful] = useState(false);
 
   const { message } = useSelector((state) => state);
   console.log(message);
   const dispatch = useDispatch();
 
-  const onChangeUsername = (e) => {
-    const username = e.target.value;
-    setUsername(username);
+  useEffect(() => {
+    setBirthday("");
+  }, []);
+  const onChangeFullname = (e) => {
+    const fullname = e.target.value;
+    setFullname(fullname);
   };
 
   const onChangeEmail = (e) => {
@@ -77,13 +48,20 @@ export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
     const password = e.target.value;
     setPassword(password);
   };
+  const onChangeBirthday = (date, dateString) => {
+    // console.log(dateString);
+    const birthday = dateString;
+    setBirthday(birthday);
+  };
 
   const handleRegister = (e) => {
     e.preventDefault();
 
     setSuccessful(false);
 
-    dispatch(register(username, email, password))
+    dispatch(
+      register(fullname, email, birthday, password, formSetting.userType)
+    )
       .then(() => {
         setSuccessful(true);
       })
@@ -92,6 +70,7 @@ export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
         setSuccessful(false);
       });
   };
+  console.log(formSetting);
 
   return (
     <div className="flex-container auth-form">
@@ -114,7 +93,11 @@ export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
             alt=""
             onClick={closeModal}
           />
-          <div className="login-title">Sign Up to Shuttle</div>
+          <div className="login-title">
+            {formSetting.userType === "bus_provider"
+              ? "Sign up as Bus Vendor"
+              : "Sign Up to Shuttle"}
+          </div>
           <br />
 
           <div className="form-group">
@@ -123,17 +106,22 @@ export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
               className="form-control input"
               id="name"
               placeholder="Full name"
-              value={username}
-              onChange={onChangeUsername}
-              validations={[required, vusername]}
+              value={fullname}
+              onChange={onChangeFullname}
             />
           </div>
           <div className="form-group">
-            <input
-              type="date"
-              className="form-control input"
-              id="birthday"
-              placeholder="Search your birthday"
+            <DatePicker
+              // value={birthday}
+              // onChange={setBirthday}
+              // inputPlaceholder="Select a day"
+              // shouldHighlightWeekends
+
+              placeholderText="Select your birthday"
+              dateFormat="yyyy-MM-dd"
+              className="form-control"
+              onChange={(date) => setBirthday(date)}
+              selected={birthday}
             />
           </div>
           <div className="form-group">
@@ -144,7 +132,6 @@ export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
               placeholder="Enter your email"
               value={email}
               onChange={onChangeEmail}
-              validations={[required, validEmail]}
             />
           </div>
           <div className="form-group">
@@ -155,7 +142,6 @@ export const RegisterForm = ({ onSubmit, changeFormType, closeModal }) => {
               placeholder="Enter your password"
               value={password}
               onChange={onChangePassword}
-              validations={[required, vpassword]}
             />
           </div>
           <div className="form-group">

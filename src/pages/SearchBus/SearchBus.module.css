@@ -147,6 +147,7 @@
   width: 190px;
   height: 41px;
   background-color: #0f5996;
+  border:none;
   color: #ffff;
   border-radius: 10px;
   margin-top: -10px;
@@ -188,4 +189,7 @@
   background-color: #0f5996;
   color: #ffffff;
   border: none;
+}
+.PrivateSwitchBase-input{
+  border-radius: 1px;
 }

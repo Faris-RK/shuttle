@@ -10,6 +10,7 @@ import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
 // Icons =====================================================
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+import sortIconSearcPage from "../../../src/assets/sortIconSearcPage.png";
 import SortIcon from "@mui/icons-material/Sort";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
@@ -230,22 +231,10 @@ function SearchBus() {
           </div>
         </div>
         <div className={styles.DescContainer}>
-          <Fab
-            color="primary"
-            // aria-label="sort"
-            variant="extended"
-            className={styles.btnSort}
-            onClick={dropDown}
-            sx={{
-              backgroundColor: "#0F5996",
-              alignItems: "center",
-              boxShadow: "none",
-            }}
-          >
-            <ArrowUpwardIcon />
-            <SortIcon />
+          <button className={styles.btnSort} onClick={dropDown}>
+            <img src={sortIconSearcPage} />
             &nbsp; Sort
-          </Fab>
+          </button>
           <div
             className={
               drop === false ? styles.dropdownNone : styles.dropdownctn
@@ -283,16 +272,21 @@ function SearchBus() {
           {shuttle?.map((shuttles) => {
             return (
               <div className={styles.DescWrapper}>
-                <h1 className={styles.titleDescription} key={shuttles.busId}>
+                <div className={styles.titleDescription} key={shuttles.busId}>
                   {shuttles.BusProvider}
                   <br />
                   <p className={styles.descClass}>executive</p>
-                </h1>
-                <p>
-                  {shuttles.departure_shuttle}
-                  <br /> {shuttles.departureTime} <br /> {shuttles.date}
-                </p>
-                <p className={styles.btnArrow}>
+                </div>
+                <div>
+                  <p className={styles.shuttleText}>
+                    {shuttles.departure_shuttle}
+                    <br />
+                    {shuttles.destinationCity}
+                  </p>
+                  <p className={styles.timeText}>{shuttles.departureTime}</p>{" "}
+                  <br /> <p className={styles.dateText}>{shuttles.date}</p>
+                </div>
+                <div className={styles.btnArrow}>
                   {" "}
                   <Fab
                     color="primary"
@@ -308,21 +302,29 @@ function SearchBus() {
                     <ArrowForwardIcon />
                   </Fab>
                   <br /> 8hr 00 mnt
-                </p>
-                <p>
-                  {shuttles.arrivalShuttle} <br />
-                  {shuttles.arrivalTime}
-                  <br /> {shuttles.date}
-                </p>
-                <p>
-                  <h1 className={styles.descPrice}>
-                    IDR {shuttles.price}/seat
-                  </h1>
+                </div>
+                <div className={styles.shuttlesWrapper}>
+                  <p className={styles.shuttleText}>
+                    {" "}
+                    {shuttles.arrivalShuttle}
+                    <br />
+                    {shuttles.arrivalCity}
+                  </p>{" "}
+                  <p className={styles.timeText}> {shuttles.arrivalTime}</p>
                   <br />
+                  <p className={styles.dateText}> {shuttles.date}</p>
+                </div>
+                <div>
+                  <h1 className={styles.descPrice}>
+                    IDR {shuttles.price}/<p className={styles.seats}>seat</p>
+                  </h1>
                   <button className={styles.btnBook}>Booking</button>
                   <br />
-                  Available Seat :{shuttles.seats}
-                </p>
+                  <p className={styles.availableSeatTxt}>
+                    {" "}
+                    Available Seat :{shuttles.seats}
+                  </p>
+                </div>
               </div>
             );
           })}

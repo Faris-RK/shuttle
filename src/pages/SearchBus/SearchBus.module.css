@@ -95,24 +95,56 @@
   text-align: center;
 }
 .btnSort {
-  width: 150px;
-  height: 60;
-  border-radius: 50px;
+  /* width: 150px;
+  height: 60; */
+  padding : 14px 32px 14px 32px;
+  border-radius: 40px;
+  font-size: 16px;
+  border: none;
+  color: #ffff;
+  background-color: #0f5996;
   float: right;
-  margin-top: 10px;
+  /* margin-top: 10px; */
 
   /* color: #ffff; */
 }
 
 .DescWrapper {
-  /* border: 1px solid #0000002a; */
+ 
   box-shadow: 0px 0px 5px 0px #0000001a;
   margin-top: 80px;
   text-align: left;
   display: flex;
-  padding: 10px 15px 10px 15px;
+  padding: 30px;
+  gap: 20px;
   justify-content: space-between;
-  align-items: center;
+  /* align-items: center; */
+}
+.shuttlesWrapper{
+  
+}
+.shuttleText{
+  color: #092c4c;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Montserrat", sans-serif;
+}
+.timeText{
+  margin-top: -10px;
+  color: #092c4c;
+  font-size: 14px;
+  font-weight: 600;
+  font-style: normal;
+  font-family: "Montserrat", sans-serif;
+}
+.dateText{
+  margin-top: -25px;
+  color: #092c4c;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+  font-family: "Montserrat", sans-serif;
 }
 .titleDescription {
   font-family: "Montserrat", sans-serif;
@@ -139,17 +171,36 @@
 }
 .descPrice {
   color: #0f5996;
-  font-size: 30px;
-  margin-top: 20px;
-  margin-bottom: -10px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: "Montserrat", sans-serif;
+  display: flex;
+  /* margin-top: 20px; */
+  /* margin-bottom: -10px; */
+}
+.seats{
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+ 
+}
+.availableSeatTxt{
+  font-family: "Montserrat", sans-serif;
+  line-height: 30px;
+  color: #0f5996;
+  font-weight: 400;
+  font-size: 14px;
+  float: right;
 }
 .btnBook {
-  width: 190px;
-  height: 41px;
+  /* width: 190px;
+  height: 41px; */
+  padding: 12px 44px 12px 44px;
   background-color: #0f5996;
   border:none;
   color: #ffff;
-  border-radius: 10px;
+  border-radius: 8px;
   margin-top: -10px;
 }
 .dropdownctn {
@@ -159,8 +210,8 @@
   min-width: 320px;
   color: #092c4c;
   box-shadow: 0px 0px 5px 0px #0000001a;
-  top: 496px;
-  right: 18.1%;
+  top: 82%;
+  right: 17%;
   z-index: 8;
   border-radius: 8px;
 }

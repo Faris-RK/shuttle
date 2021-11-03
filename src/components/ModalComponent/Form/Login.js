@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+
 import { login } from "../../../actions/auth";
 import "./Form.css";
 import logomodal from "../../../assets/logo-modal.png";

@@ -18,7 +18,7 @@ function SearchBar() {
   useEffect(() => {
     searchShuttle().then((response) => {
       setShuttles(response?.data?.data);
-      console.log(response?.data?.data);
+     
     });
   }, []);
 
@@ -47,7 +47,7 @@ function SearchBar() {
       order_type: "RoundTrip",
     };
     searchBus(params).then((response) => {
-      console.log(response);
+    
     });
   };
   const { Option } = Select;

@@ -11,12 +11,23 @@ import { logout } from "../../actions/auth";
 import { history } from "../../helpers/history";
 import { clearMessage } from "../../actions/message";
 import { useDispatch, useSelector } from "react-redux";
-function Navbar({ showModal }) {
+import { userData } from "../../services/auth.service";
+import { store } from "../../services/auth.service";
+
+function Navbar({ showModal, closeModal }) {
+  //  state ========================================================================================//
+
   const [drop, setDrop] = useState(false);
   const [buttonActive, setButtonActive] = useState();
   const { auth: user, isLoggedIn } = useSelector((state) => state.auth);
-  console.log(isLoggedIn);
+  // console.log(isLoggedIn);
+  const [dataUser, setDataUser] = useState("");
   const dispatch = useDispatch();
+
+  const Token = store.getItem("user");
+  console.log(Token, "token");
+
+  //  Function ========================================================================================//
 
   const dropDown = () => {
     if (drop === false) {
@@ -29,6 +40,9 @@ function Navbar({ showModal }) {
   const buttonSelected = (e) => {
     setButtonActive(e.target.innerHTML);
   };
+
+  //  UseEffect ========================================================================================//
+
   useEffect(() => {
     history.listen((location) => {
       dispatch(clearMessage()); // clear message when changing location
@@ -37,6 +51,13 @@ function Navbar({ showModal }) {
   const logOut = () => {
     dispatch(logout());
   };
+
+  useEffect(() => {
+    userData(Token).then((response) => {
+      setDataUser(response?.data?.data);
+      console.log(response.data.data, "ini data user");
+    });
+  }, []);
 
   return (
     <div className="container" history={history}>
@@ -62,57 +83,7 @@ function Navbar({ showModal }) {
                 <li>Check Booking</li>
               </ul>
             </div>
-            {isLoggedIn ?  (
-            <>
-            <div className={styles.ContainerDropdown} onClick={dropDown}>
-                <img src={logoUser} alt="" />
-                <p>Sandi</p>
-                <img src={logoDropdown} alt="" />
-              </div>
-              <div
-                className={
-                  drop === false ? styles.dropdownNone : styles.dropdown
-                }
-              >
-                <div className={styles.sectionDropdown}>
-                  <div
-                    className={
-                      buttonActive === "Account"
-                        ? styles.btnActive
-                        : styles.userDropdown
-                    }
-                    // onClick={buttonSelected}
-                  >
-                    <img
-                      className={styles.iconDropdown}
-                      src={buttonActive === "Account" ? logoUser2 : logoUser}
-                      alt=""
-                    />
-                    <p className={styles.titleUser} onClick={logOut}>
-                      Account
-                    </p>
-                  </div>
-                  <div
-                    className={
-                      buttonActive === "Sing Out"
-                        ? styles.btnActiveSingout
-                        : styles.userDropdown
-                    }
-                  >
-                    <img
-                      className={styles.iconDropdown}
-                      src={singoutIcon}
-                      alt=""
-                    />
-                    <p className={styles.titleUser} onClick={logOut}>
-                      Sign Out
-                    </p>
-                  </div>
-                </div>
-              </div>
-              </>
-              
-            ) : (
+            {isLoggedIn === false ? (
               <div className={styles.btnContainer}>
                 <button
                   className={styles.btnSignin}
@@ -128,12 +99,68 @@ function Navbar({ showModal }) {
                   Sign Up
                 </button>
               </div>
+            ) : (
+              <>
+                <div className={styles.ContainerDropdown} onClick={dropDown}>
+                  <img
+                    className={styles.avatarProfile}
+                    src={dataUser.profile_picture}
+                    alt=""
+                  />
+                  <h1 className={styles.userName}>{dataUser.fullname}</h1>
+                  <img
+                    className={styles.iconDownArrow}
+                    src={logoDropdown}
+                    alt=""
+                  />
+                </div>
+                <div
+                  className={
+                    drop === false ? styles.dropdownNone : styles.dropdown
+                  }
+                >
+                  <div className={styles.sectionDropdown}>
+                    <div
+                      className={
+                        buttonActive === "Account"
+                          ? styles.btnActive
+                          : styles.userDropdown
+                      }
+                      // onClick={buttonSelected}
+                    >
+                      <img
+                        className={styles.iconDropdown}
+                        src={buttonActive === "Account" ? logoUser2 : logoUser}
+                        alt=""
+                      />
+                      <Link to={"/Profiledata"}>
+                        <p className={styles.titleUser}>Account</p>
+                      </Link>
+                    </div>
+                    <div
+                      className={
+                        buttonActive === "Sing Out"
+                          ? styles.btnActiveSingout
+                          : styles.userDropdown
+                      }
+                    >
+                      <img
+                        className={styles.iconDropdown}
+                        src={singoutIcon}
+                        alt=""
+                      />
+                      <p className={styles.titleUser} onClick={logOut}>
+                        Sign Out
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </>
             )}
           </>
 
           {/* <button className={styles.btnSignup}>Sign Up</button>{" "} */}
           {/* DROPDOWN ============================================== */}
-         
         </nav>
       </div>
     </div>

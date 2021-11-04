@@ -1,8 +1,9 @@
 import { Box, TextField, Paper, Rating } from "@mui/material";
 import styles from "../ProfileAccount/Details.module.css";
-import infocircle from "./infocircle.png";
+import notifIcon from "../../assets/notifIcon.png";
 import profilepoto from "./Profilepoto.png";
 import panah from "./Vectorpanah.png";
+import Grid from "@mui/material/Grid";
 import React from "react";
 import ModalRating from "../ModalComponent/ModalRating/ModalRating";
 import { style } from "@mui/system";
@@ -24,48 +25,53 @@ const ProfileData = () => {
         </div>
       </div>
 
-      <Box
-        component="form"
-        sx={{
-          "& .MuiTextField-root": { m: 1, width: "25ch" },
-        }}
-        noValidate
-        autoComplete="off"
-      >
-        <div className={styles.boxform}>
-          <TextField
-            required
-            id="outlined-required"
-            label="Full Name"
-            style={{ width: "100%" }}
-            defaultValue="Full Name"
-          />
-          <TextField
-            required
-            id="outlined-required"
-            label="Email"
-            defaultValue="Email"
-            style={{ width: "100%" }}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            type="number"
-            label="Phone Number"
-            defaultValue="Phone Number"
-            style={{ width: "100%" }}
-          />
-          <TextField
-            required
-            id="outlined-required"
-            type="date"
-            label="Birthday Date"
-            defaultValue="Birthday Date"
-            style={{ width: "100%" }}
-          />
-        </div>
-      </Box>
-      <button className={styles.buttonsave}>Save</button>
+      <div className={styles.boxform}>
+        <Grid container spacing={5} sx={{ paddingBottom: 5 }}>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="outlined-required"
+              variant="standard"
+              label="Full Name"
+              style={{ width: "90%" }}
+              defaultValue="Full Name"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="outlined-required"
+              label="Email"
+              variant="standard"
+              defaultValue="Email"
+              style={{ width: "90%" }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="outlined-required"
+              type="number"
+              variant="standard"
+              label="Phone Number"
+              defaultValue="Phone Number"
+              style={{ width: "90%" }}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              id="outlined-required"
+              type="date"
+              variant="standard"
+              label="Birthday Date"
+              defaultValue="2017-05-24"
+              style={{ width: "90%" }}
+            />
+          </Grid>
+        </Grid>
+        <button className={styles.buttonsave}>Save</button>
+      </div>
     </div>
   );
 };
@@ -79,7 +85,7 @@ const Notifications = () => {
       <div>
         <div className={styles.newbook}>
           <div className={styles.imagecircle}>
-            <img className={styles.imgcircle} src={infocircle}></img>
+            <img className={styles.imgcircle} src={notifIcon}></img>
             <div>
               <h1 className={styles.bokSucc}>Booking Success!</h1>
               <p className={styles.textpay}>
@@ -91,7 +97,7 @@ const Notifications = () => {
         </div>
         <div className={styles.newbook}>
           <div className={styles.imagecircle}>
-            <img className={styles.imgcircle} src={infocircle}></img>
+            <img className={styles.imgcircle} src={notifIcon}></img>
             <div>
               <h1 className={styles.bokSucc}>Payment Success!</h1>
               <p className={styles.textpay}>
@@ -104,7 +110,7 @@ const Notifications = () => {
         </div>
         <div className={styles.newbook}>
           <div className={styles.imagecircle}>
-            <img className={styles.imgcircle} src={infocircle}></img>
+            <img className={styles.imgcircle} src={notifIcon}></img>
             <div>
               <h1 className={styles.bokSucc}>Booking Success!</h1>
               <p className={styles.textpay}>
@@ -116,7 +122,7 @@ const Notifications = () => {
         </div>
         <div className={styles.newbook}>
           <div className={styles.imagecircle}>
-            <img className={styles.imgcircle} src={infocircle}></img>
+            <img className={styles.imgcircle} src={notifIcon}></img>
             <div>
               <h1 className={styles.bokSucc}>Payment Success!</h1>
               <p className={styles.textpay}>
@@ -129,7 +135,7 @@ const Notifications = () => {
         </div>
         <div className={styles.newbook}>
           <div className={styles.imagecircle}>
-            <img className={styles.imgcircle} src={infocircle}></img>
+            <img className={styles.imgcircle} src={notifIcon}></img>
             <div>
               <h1 className={styles.bokSucc}>Booking Success!</h1>
               <p className={styles.textpay}>
@@ -141,7 +147,7 @@ const Notifications = () => {
         </div>
         <div className={styles.newbook}>
           <div className={styles.imagecircle}>
-            <img className={styles.imgcircle} src={infocircle}></img>
+            <img className={styles.imgcircle} src={notifIcon}></img>
             <div className={styles.paySucc}>
               <h1 className={styles.bokSucc}>Payment Success!</h1>
               <p className={styles.textpay}>
@@ -346,15 +352,17 @@ const ProfileDetails = ({ ...props }) => {
   const { tab } = props;
   return (
     <div>
-      {tab === 1 ? (
-        <ProfileData />
-      ) : tab === 2 ? (
-        <Notifications />
-      ) : tab === 3 ? (
-        <GiveRatingAndReview />
-      ) : tab === 4 ? (
-        <ChangePassword />
-      ) : null}
+      <>
+        {tab === 1 ? (
+          <ProfileData />
+        ) : tab === 2 ? (
+          <Notifications />
+        ) : tab === 3 ? (
+          <GiveRatingAndReview />
+        ) : tab === 4 ? (
+          <ChangePassword />
+        ) : null}
+      </>
     </div>
   );
 };

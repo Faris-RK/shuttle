@@ -1,24 +1,30 @@
 .container {
-  background: #ffffff;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 10px 0px #0000001A;
+  /* height: 465px; */
   border-radius: 4px;
-  width: 500px;
-  height: 262px;
-  margin-right: 227;
 }
 
-.MuiListItemButton {
-  background-color: #0f5996 !important;
-  width: 250px;
-  height: 57px;
+
+.listbutton{
+  gap: 15px;
+  align-items: center;
+  padding: 16px 52px 16px 0px;
+ 
 }
 .listtext {
-  font-family: Montserrat;
+  font-family:"Montserrat", sans-serif;
   font-style: normal;
-  font-weight: 500;
+  padding: 10px 52px 10px 0px;
+  font-weight: 400;
+  color: #092C4C;
   font-size: 14px;
-  line-height: 17px;
+  /* line-height: 17px;*/
 }
-.img {
-  margin-right: 5px;
+
+.imgIcon {
+  width: 20px;
+  height: 20px;
+  margin-left: 20px;
+  /* border: solid; */
+  
 }

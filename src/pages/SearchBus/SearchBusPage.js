@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { searchBus } from "../../services/auth.service";
+import NumberFormat from "react-number-format";
 // css  =============================================
 import styles from "./SearchBus.module.css";
 // Checkbox , Radio Button ============================
@@ -22,7 +23,9 @@ function SearchBus() {
   const [shuttle, setShuttle] = useState([]);
   const [arrivalValue, setArrivalValue] = useState([]);
   const [departureValue, setDepartureValue] = useState([]);
-  const [departureTimeList, setDepartureTimeList] = useState([]);
+  // const [departureTimeList, setDepartureTimeList] = useState([]);
+  const [sortBusList, setSortBusList] = useState([]);
+
   const location = useLocation();
   console.log(location);
 
@@ -54,12 +57,14 @@ function SearchBus() {
       passenger: 1,
       order_type: "RoundTrip",
       time: `${departureValue}${arrivalValue}`,
+      sort_by: `${sortBusList}`,
+      direction: "ASC",
     };
     searchBus(params).then((response) => {
       setShuttle(response?.data?.departure);
       console.log(response.data.departure, "ini data");
     });
-  }, [departureValue, arrivalValue]);
+  }, [departureValue, arrivalValue, sortBusList]);
 
   //  Function      ===========================================//
   const handleChangeDeparture = (e) => {
@@ -69,6 +74,12 @@ function SearchBus() {
   const handleChangeArrival = (e) => {
     setArrivalValue(e.target.value);
     console.log(e.target.value);
+  };
+  const handleChangeSort = (e) => {
+    setSortBusList(e.target.value);
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault(sortBusList);
   };
 
   const handleClickDeparture = () => {
@@ -247,31 +258,39 @@ function SearchBus() {
           >
             <h1 className={styles.titleDropdown}>Sort by</h1>
             <RadioGroup
-              aria-label="gender"
-              defaultValue="female"
+              aria-label="Sort"
+              value={sortBusList}
+              name="radio-buttons-group"
               className={styles.radioButtonsGroup}
+              onChange={handleChangeSort}
             >
               <FormControlLabel
-                value="Lowest price"
+                value="price"
                 control={<Radio />}
                 label="Lowest price"
               />
               <FormControlLabel
-                value="Earliest depature time"
+                value="departure_time"
                 control={<Radio />}
                 label="Earliest depature time"
               />
               <FormControlLabel
-                value="Earliest arival time"
+                value="arrival_time"
                 control={<Radio />}
                 label="Earliest arival time"
               />
               <FormControlLabel
-                value="Shortest duration"
+                value="duration"
                 control={<Radio />}
                 label="Shortest duration"
               />
-              <button className={styles.btnDropdown}>Sort</button>
+              <button
+                className={styles.btnDropdown}
+                onSubmit={handleSubmit}
+                type="submit"
+              >
+                Sort
+              </button>
             </RadioGroup>
           </div>
           {shuttle?.map((shuttles) => {
@@ -321,7 +340,14 @@ function SearchBus() {
                 </div>
                 <div>
                   <h1 className={styles.descPrice}>
-                    IDR {shuttles.price}/<p className={styles.seats}>seat</p>
+                    <NumberFormat
+                      value={shuttles.price}
+                      displayType="text"
+                      thousandSeparator="."
+                      decimalSeparator=","
+                      prefix=" IDR "
+                    />{" "}
+                    /<p className={styles.seats}>seat</p>
                   </h1>
                   <button className={styles.btnBook}>Booking</button>
                   <br />

@@ -78,17 +78,15 @@ li a {
 }
 .ContainerDropdown {
   display: flex;
-  /* border: solid;aa */
+  /* border: solid; */
   font-family: "Montserrat", sans-serif;
-  font-size: 20px;
-  line-height: 50px;
   gap: 15px;
-  height: 53px;
-  width: 129px;
-  margin-right: 40px;
+  padding: 3px;
+  align-items: center;
   margin-left: 189px;
   cursor: pointer;
 }
+
 .dropdown {
   display: block;
   position: absolute;
@@ -99,7 +97,7 @@ li a {
   cursor: pointer;
   box-shadow: 0px 5px 10px 0px #0000001a;
   top: 70px;
-  right: 27%;
+  right: 16%;
   z-index: 8;
   border-radius: 8px;
 }
@@ -118,8 +116,27 @@ li a {
 }
 .titleUser {
   font-size: 15px;
-
+  text-decoration: none;
+  
+  
   /* line-height: 22px; */
+}
+.userName{
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 50px;
+}
+.avatarProfile{
+  width: 35px;
+  height: 35px;
+  border-radius: 50px;
+  align-items: center;
+}
+.iconDownArrow{
+  width: 20px;
+  margin-top: -3px;
+  height: 20px;
 }
 .iconDropdown {
   width: 25px;
@@ -132,6 +149,7 @@ li a {
   padding: 8px 20px 0px 20px;
   font-size: 15px;
   font-weight: 500;
+
   gap: 10px;
   line-height: 25px;
   height: 42px;
@@ -151,3 +169,4 @@ li a {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
+

@@ -1,5 +1,7 @@
 import axios from "axios";
+// import authHeader from "./auth-header";
 export const store = window.localStorage;
+const Token = store.getItem("user");
 
 const API_URL = "https://final-project-shuttle.herokuapp.com/";
 
@@ -11,6 +13,13 @@ export const searchBus = (params) => {
   return axios.get(API_URL + "search", { params });
 };
 
+export const userData = () => {
+  return axios.get(API_URL + "user", {
+    headers: {
+      AUTHORIZATION: "Bearer " + Token,
+    },
+  });
+};
 // export const searchBusList = () => {
 //   return axios.get(
 //     API_URL +

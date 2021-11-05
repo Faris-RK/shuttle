@@ -8,10 +8,11 @@ import EticketDetails from "./EticketDetails";
 import { useCallback, useState } from "react";
 
 function MyBookingExact() {
-  const [buttonActive, setButtonActive] = useState();
+  const [buttonActive, setButtonActive] = useState("");
   const buttonSelected = (e) => {
     setButtonActive(e.target.innerHTML);
   };
+
   return (
     <React.Fragment>
       <div className={styles.container}>
@@ -20,7 +21,7 @@ function MyBookingExact() {
             <Link to={"/myBookingExact/"} className={styles.Link}>
               <h1
                 className={
-                  buttonActive === "On Going Booking"
+                  buttonActive === "On Going Booking" || buttonActive === ""
                     ? styles.btnActive
                     : styles.textOngoing
                 }

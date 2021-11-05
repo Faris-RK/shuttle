@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { searchBus } from "../../services/auth.service";
+import NumberFormat from "react-number-format";
 // css  =============================================
 import styles from "./SearchBus.module.css";
 // Checkbox , Radio Button ============================
@@ -17,34 +18,19 @@ import SearchBar from "../../components/SearchBar/SearchBar.js";
 import { Provider } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-function SearchBus() {
+function SearchBus(props) {
   //  State          ===========================================//
   const [shuttle, setShuttle] = useState([]);
   const [arrivalValue, setArrivalValue] = useState([]);
   const [departureValue, setDepartureValue] = useState([]);
-  const [departureTimeList, setDepartureTimeList] = useState([]);
+  // const [departureTimeList, setDepartureTimeList] = useState([]);
+  const [sortBusList, setSortBusList] = useState([]);
+
   const location = useLocation();
-  console.log(location);
+  console.log(location, "ini location");
+  console.log(props, "ini props");
 
   //  UseEffect      ===========================================//
-  useEffect(() => {
-    // const params = {
-    //   departure_shuttle_id: "f9fafe16-544f-4928-8ed2-6bebc30e0b5a",
-    //   arrival_shuttle_id: "81cefdf4-370b-4201-8d5e-816b2fea8d8a",
-    //   departure_date: "2021-10-29",
-    //   return_date: "2021-10-25",
-    //   passenger: 1,
-    //   order_type: "RoundTrip",
-    //   time: `${departureValue}`,
-    // };
-    // console.log(location.state.data)
-    searchBus(location.state ? location.state.data : {}).then((response) => {
-      setShuttle(response?.data?.departure);
-      setDepartureTimeList(response?.data?.departure);
-      console.log(response.data.departure);
-    });
-  }, []);
-
   useEffect(() => {
     const params = {
       departure_shuttle_id: "f9fafe16-544f-4928-8ed2-6bebc30e0b5a",
@@ -53,13 +39,37 @@ function SearchBus() {
       return_date: "2021-10-25",
       passenger: 1,
       order_type: "RoundTrip",
+      time: `${departureValue}`,
+    };
+
+    // console.log(location.state.data)
+    searchBus(params).then((response) => {
+      setShuttle(response?.data?.departure);
+      // setDepartureTimeList(response?.data?.departure);
+      console.log(response.data.departure);
+    });
+  }, []);
+
+  let locationData = location && location.state ? location.state.data : {};
+  console.log(locationData, "ini location data");
+
+  useEffect(() => {
+    const params = {
+      departure_shuttle_id: locationData.departure_shuttle_id,
+      arrival_shuttle_id: locationData.arrival_shuttle_id,
+      departure_date: locationData.inputDepartureDate,
+      return_date: locationData.return_date,
+      passenger: locationData.inputPassanger,
+      order_type: locationData.order_type,
       time: `${departureValue}${arrivalValue}`,
+      sort_by: `${sortBusList}`,
+      direction: "ASC",
     };
     searchBus(params).then((response) => {
       setShuttle(response?.data?.departure);
-      console.log(response.data.departure);
+      console.log(response.data.departure, "ini data");
     });
-  }, [departureValue, arrivalValue]);
+  }, [locationData, departureValue, arrivalValue, sortBusList]);
 
   //  Function      ===========================================//
   const handleChangeDeparture = (e) => {
@@ -69,6 +79,12 @@ function SearchBus() {
   const handleChangeArrival = (e) => {
     setArrivalValue(e.target.value);
     console.log(e.target.value);
+  };
+  const handleChangeSort = (e) => {
+    setSortBusList(e.target.value);
+  };
+  const handleClick = (e) => {
+    e.preventDefault(sortBusList);
   };
 
   const handleClickDeparture = () => {
@@ -234,6 +250,7 @@ function SearchBus() {
             </div>
           </div>
         </div>
+
         <div className={styles.DescContainer}>
           <button className={styles.btnSort} onClick={dropDown}>
             <img src={sortIconSearcPage} />
@@ -246,31 +263,39 @@ function SearchBus() {
           >
             <h1 className={styles.titleDropdown}>Sort by</h1>
             <RadioGroup
-              aria-label="gender"
-              defaultValue="female"
+              aria-label="Sort"
+              value={sortBusList}
+              name="radio-buttons-group"
               className={styles.radioButtonsGroup}
+              onChange={handleChangeSort}
             >
               <FormControlLabel
-                value="Lowest price"
+                value="price"
                 control={<Radio />}
                 label="Lowest price"
               />
               <FormControlLabel
-                value="Earliest depature time"
+                value="departure_time"
                 control={<Radio />}
                 label="Earliest depature time"
               />
               <FormControlLabel
-                value="Earliest arival time"
+                value="arrival_time"
                 control={<Radio />}
                 label="Earliest arival time"
               />
               <FormControlLabel
-                value="Shortest duration"
+                value="duration"
                 control={<Radio />}
                 label="Shortest duration"
               />
-              <button className={styles.btnDropdown}>Sort</button>
+              <button
+                className={styles.btnDropdown}
+                onClick={handleClick}
+                type="submit"
+              >
+                Sort
+              </button>
             </RadioGroup>
           </div>
           {shuttle?.map((shuttles) => {
@@ -320,7 +345,14 @@ function SearchBus() {
                 </div>
                 <div>
                   <h1 className={styles.descPrice}>
-                    IDR {shuttles.price}/<p className={styles.seats}>seat</p>
+                    <NumberFormat
+                      value={shuttles.price}
+                      displayType="text"
+                      thousandSeparator="."
+                      decimalSeparator=","
+                      prefix=" IDR "
+                    />{" "}
+                    /<p className={styles.seats}>seat</p>
                   </h1>
                   <button className={styles.btnBook}>Booking</button>
                   <br />

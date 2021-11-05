@@ -4,10 +4,11 @@ import Arrow from "../../assets/arrow.png";
 import { Select, DatePicker } from "antd";
 import { searchShuttle } from "../../services/auth.service";
 import { searchBus } from "../../services/auth.service";
+import moment from "moment";
 import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const dateFormat = "ddd, DD MMM YYYY";
-
 
 function SearchBar() {
   const [shuttles, setShuttles] = useState([]);
@@ -16,13 +17,34 @@ function SearchBar() {
   const [departureTerminal, setDepartureTerminal] = useState("");
   const [arrivalTerminal, setArrivalTerminal] = useState("");
   const [passenger, setPassenger] = useState("");
-  const history = useHistory()
-  
+  const history = useHistory();
+  const location = useLocation();
+
   useEffect(() => {
     searchShuttle().then((response) => {
       setShuttles(response?.data?.data);
     });
+    if (location && location.state && location.state.data) {
+      console.log(location.state.data, "location state data");
+      let locationInput = location.state.data;
+      setDepartureTerminal(locationInput.inputDepartureTerminal);
+      setArrivalTerminal(locationInput.inputArrivalTerminal);
+      let momentDeparture = moment(
+        locationInput.inputDepartureDate,
+        "YYYY-MM-DD"
+      );
+      setDepartureDate(momentDeparture);
+
+      let momentArrival = moment(locationInput.inputArrivalDate, "YYYY-MM-DD");
+      setArrivalDate(momentArrival);
+
+      setPassenger(locationInput.inputPassanger);
+      console.log(locationInput.inputArrivalTerminal, "ini arrival input");
+      console.log(locationInput.inputPassanger, "ini input Passanger");
+    }
   }, []);
+  console.log(arrivalTerminal, "ini arrivalTerminal");
+  console.log(departureDate, "ini departureDate");
 
   const onChangeDepartureTerminal = (value) => {
     console.log(value);
@@ -30,7 +52,7 @@ function SearchBar() {
   };
 
   const onChangeArrivalTerminal = (value) => {
-    console.log(value);
+    console.log(value, "ini value onchange terminal");
     setArrivalTerminal(value);
   };
 
@@ -40,31 +62,39 @@ function SearchBar() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
- 
+
     const params = {
       departure_shuttle_id: departureTerminal,
       arrival_shuttle_id: arrivalTerminal,
-      departure_date: departureDate ? departureDate.format("YYYY-MM-DD") : "" ,
-      return_date: arrivalDate ? arrivalDate.format("YYYY-MM-DD") : "" ,
+      departure_date: departureDate ? departureDate.format("YYYY-MM-DD") : "",
+      return_date: arrivalDate ? arrivalDate.format("YYYY-MM-DD") : "",
       passenger: 1,
       order_type: "RoundTrip",
-    };
-    
-    history.push({
-      pathname: '/SearchBus',
-      // search: '?update=true',  // query string
-      state: {  // location state
-        data:params, 
-      },
-    }); 
-    // dispatch(saveSearchParams())
 
+      inputDepartureTerminal: departureTerminal,
+      inputArrivalTerminal: arrivalTerminal,
+      inputDepartureDate: departureDate
+        ? departureDate.format("YYYY-MM-DD")
+        : "",
+      inputArrivalDate: arrivalDate ? arrivalDate.format("YYYY-MM-DD") : "",
+      inputPassanger: passenger,
+    };
+
+    history.push({
+      pathname: "/SearchBus",
+      // search: '?update=true',  // query string
+      state: {
+        // location state
+        data: params,
+      },
+    });
+    // dispatch(saveSearchParams())
 
     // simpan data dari variable params ke redux
     // redirect ke halaman search
-  
   };
   const { Option } = Select;
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="button-trip-container">
@@ -77,6 +107,7 @@ function SearchBar() {
             <label htmlFor="from">From</label>
             <Select
               onChange={onChangeDepartureTerminal}
+              value={departureTerminal}
               className="form-control input"
               showSearch
               placeholder="Search to Select"
@@ -112,6 +143,7 @@ function SearchBar() {
             <Select
               onChange={onChangeArrivalTerminal}
               className="form-control input"
+              value={arrivalTerminal}
               showSearch
               placeholder="Search to Select"
               optionFilterProp="children"
@@ -160,6 +192,7 @@ function SearchBar() {
             <Select
               onChange={onChangePassenger}
               showSearch
+              value={passenger}
               placeholder="Search to Select"
               optionFilterProp="children"
               filterOption={(input, option) =>

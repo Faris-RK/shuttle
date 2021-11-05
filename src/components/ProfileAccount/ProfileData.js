@@ -2,11 +2,11 @@ import React from "react";
 import styles from "../ProfileAccount/Profile.module.css";
 import { Box, List, ListItemButton, ListItemText } from "@mui/material";
 import "../ProfileAccount/ProfileData.css";
-import iconfoto from "./iconfoto.png";
-import bell from "./bell.png";
-import staricon from "./staricon.png";
-import Vector from "./Vector.png";
-import akariconssignout from "./akariconssignout.png";
+import logoUser from "../../assets/logoUser.svg";
+import singoutIcon from "../../assets/singoutIcon.svg";
+import starIcon from "../../assets/starIcon.svg";
+import bell from "../../assets/bell.svg";
+import keyIcon from "../../assets/keyIcon.svg";
 
 export default function ProfileData({ ...props }) {
   const { selectedIndex, setSelectedIndex } = props;
@@ -16,45 +16,52 @@ export default function ProfileData({ ...props }) {
   };
 
   return (
-    <Box className={styles.container}>
-      <List>
+    <div>
+      <Box className={styles.container}>
         <ListItemButton
           className={styles.listbutton}
           selected={selectedIndex === 1}
           onClick={(event) => handleListItemClick(event, 1)}
         >
-          <img src={iconfoto} className={styles.img} />
+          <img src={logoUser} className={styles.imgIcon} />
           <ListItemText className={styles.listtext} primary="Profile" />
         </ListItemButton>
         <ListItemButton
+          className={styles.listbutton}
           selected={selectedIndex === 2}
           onClick={(event) => handleListItemClick(event, 2)}
         >
-          <img src={bell} className={styles.img} />
-          <ListItemText primary="Notifications" />
+          <img src={bell} className={styles.imgIcon} />
+          <ListItemText primary="Notifications" className={styles.listtext} />
         </ListItemButton>
         <ListItemButton
+          className={styles.listbutton}
           selected={selectedIndex === 3}
           onClick={(event) => handleListItemClick(event, 3)}
         >
-          <img src={staricon} className={styles.img} />
-          <ListItemText primary="Give Rating and Review" />
+          <img src={starIcon} className={styles.imgIcon} />
+          <ListItemText
+            primary="Give Rating and Review"
+            className={styles.listtext}
+          />
         </ListItemButton>
         <ListItemButton
+          className={styles.listbutton}
           selected={selectedIndex === 4}
           onClick={(event) => handleListItemClick(event, 4)}
         >
-          <img src={Vector} className={styles.img} />
-          <ListItemText primary="Change Password" />
+          <img src={keyIcon} className={styles.imgIcon} />
+          <ListItemText primary="Change Password" className={styles.listtext} />
         </ListItemButton>
         <ListItemButton
-        // selected={selectedIndex === 4}
-        // onClick={(event) => handleListItemClick(event, 4)}
+          className={styles.listbutton}
+          // selected={selectedIndex === 4}
+          // onClick={(event) => handleListItemClick(event, 4)}
         >
-          <img src={akariconssignout} className={styles.img} />
-          <ListItemText primary="SignOut" />
+          <img src={singoutIcon} className={styles.imgIcon} />
+          <ListItemText primary="SignOut" className={styles.listtext} />
         </ListItemButton>
-      </List>
-    </Box>
+      </Box>
+    </div>
   );
 }

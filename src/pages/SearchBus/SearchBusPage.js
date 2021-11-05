@@ -18,7 +18,7 @@ import SearchBar from "../../components/SearchBar/SearchBar.js";
 import { Provider } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-function SearchBus() {
+function SearchBus(props) {
   //  State          ===========================================//
   const [shuttle, setShuttle] = useState([]);
   const [arrivalValue, setArrivalValue] = useState([]);
@@ -27,27 +27,10 @@ function SearchBus() {
   const [sortBusList, setSortBusList] = useState([]);
 
   const location = useLocation();
-  console.log(location);
+  console.log(location, "ini location");
+  console.log(props, "ini props");
 
   //  UseEffect      ===========================================//
-  useEffect(() => {
-    // const params = {
-    //   departure_shuttle_id: "f9fafe16-544f-4928-8ed2-6bebc30e0b5a",
-    //   arrival_shuttle_id: "81cefdf4-370b-4201-8d5e-816b2fea8d8a",
-    //   departure_date: "2021-10-29",
-    //   return_date: "2021-10-25",
-    //   passenger: 1,
-    //   order_type: "RoundTrip",
-    //   time: `${departureValue}`,
-    // };
-    // console.log(location.state.data)
-    searchBus(location.state ? location.state.data : {}).then((response) => {
-      setShuttle(response?.data?.departure);
-      // setDepartureTimeList(response?.data?.departure);
-      console.log(response.data.departure);
-    });
-  }, []);
-
   useEffect(() => {
     const params = {
       departure_shuttle_id: "f9fafe16-544f-4928-8ed2-6bebc30e0b5a",
@@ -56,6 +39,28 @@ function SearchBus() {
       return_date: "2021-10-25",
       passenger: 1,
       order_type: "RoundTrip",
+      time: `${departureValue}`,
+    };
+
+    // console.log(location.state.data)
+    searchBus(params).then((response) => {
+      setShuttle(response?.data?.departure);
+      // setDepartureTimeList(response?.data?.departure);
+      console.log(response.data.departure);
+    });
+  }, []);
+
+  let locationData = location && location.state ? location.state.data : {};
+  console.log(locationData, "ini location data");
+
+  useEffect(() => {
+    const params = {
+      departure_shuttle_id: locationData.departure_shuttle_id,
+      arrival_shuttle_id: locationData.arrival_shuttle_id,
+      departure_date: locationData.inputDepartureDate,
+      return_date: locationData.return_date,
+      passenger: locationData.inputPassanger,
+      order_type: locationData.order_type,
       time: `${departureValue}${arrivalValue}`,
       sort_by: `${sortBusList}`,
       direction: "ASC",
@@ -64,7 +69,7 @@ function SearchBus() {
       setShuttle(response?.data?.departure);
       console.log(response.data.departure, "ini data");
     });
-  }, [departureValue, arrivalValue, sortBusList]);
+  }, [locationData, departureValue, arrivalValue, sortBusList]);
 
   //  Function      ===========================================//
   const handleChangeDeparture = (e) => {
@@ -78,7 +83,7 @@ function SearchBus() {
   const handleChangeSort = (e) => {
     setSortBusList(e.target.value);
   };
-  const handleSubmit = (e) => {
+  const handleClick = (e) => {
     e.preventDefault(sortBusList);
   };
 
@@ -286,7 +291,7 @@ function SearchBus() {
               />
               <button
                 className={styles.btnDropdown}
-                onSubmit={handleSubmit}
+                onClick={handleClick}
                 type="submit"
               >
                 Sort

@@ -76,6 +76,8 @@ const ProfileData = () => {
   );
 };
 
+//  Notification ================================================================================================//
+
 const Notifications = () => {
   return (
     <div className={styles.boxNotif}>
@@ -317,32 +319,43 @@ const ChangePassword = () => {
         <p>Change Password</p>
       </div>
       <div className={styles.FieldPass}>
-        <TextField
-          className={styles.Fieldbox}
-          required
-          id="outlined-password-input"
-          label="Old Password"
-          type="password"
-          style={{ width: "100%" }}
-          defaultValue="*******"
-        />
-        <TextField
-          required
-          id="outlined-password-input"
-          label="New Password"
-          type="password"
-          style={{ width: "100%" }}
-          defaultValue="********"
-        />
-        <TextField
-          required
-          id="outlined-password-input"
-          label="Confirm Password"
-          type="password"
-          style={{ width: "100%" }}
-          defaultValue="********"
-        />
-        <button className={styles.safebutt}>Safe</button>
+        <Grid container spacing={5} sx={{ paddingBottom: 5 }}>
+          <Grid item xs={12}>
+            <TextField
+              className={styles.Fieldbox}
+              required
+              id="outlined-password-input"
+              variant="standard"
+              label="Old Password"
+              type="password"
+              style={{ width: "100%" }}
+              defaultValue="123456789"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              variant="standard"
+              id="outlined-password-input"
+              label="New Password"
+              type="password"
+              style={{ width: "100%" }}
+              defaultValue="123456789"
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <TextField
+              required
+              variant="standard"
+              id="outlined-password-input"
+              label="Confirm Password"
+              type="password"
+              style={{ width: "100%" }}
+              defaultValue="123456789"
+            />
+          </Grid>
+          <button className={styles.safebutt}>Save</button>
+        </Grid>
       </div>
     </div>
   );

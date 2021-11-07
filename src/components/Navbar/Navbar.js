@@ -11,11 +11,16 @@ import { logout } from "../../actions/auth";
 import { history } from "../../helpers/history";
 import { clearMessage } from "../../actions/message";
 import { useDispatch, useSelector } from "react-redux";
+import * as UserService from '../../services/user.service'
 function Navbar({ showModal }) {
   const [drop, setDrop] = useState(false);
   const [buttonActive, setButtonActive] = useState();
+
+
   const { auth: user, isLoggedIn } = useSelector((state) => state.auth);
+
   console.log(isLoggedIn);
+
   const dispatch = useDispatch();
 
   const dropDown = () => {
@@ -37,6 +42,8 @@ function Navbar({ showModal }) {
   const logOut = () => {
     dispatch(logout());
   };
+
+
 
   return (
     <div className="container" history={history}>
@@ -62,57 +69,61 @@ function Navbar({ showModal }) {
                 <li>Check Booking</li>
               </ul>
             </div>
-            {isLoggedIn ?  (
-            <>
-            <div className={styles.ContainerDropdown} onClick={dropDown}>
-                <img src={logoUser} alt="" />
-                <p>Sandi</p>
-                <img src={logoDropdown} alt="" />
-              </div>
-              <div
-                className={
-                  drop === false ? styles.dropdownNone : styles.dropdown
-                }
-              >
-                <div className={styles.sectionDropdown}>
-                  <div
-                    className={
-                      buttonActive === "Account"
-                        ? styles.btnActive
-                        : styles.userDropdown
-                    }
-                    // onClick={buttonSelected}
-                  >
-                    <img
-                      className={styles.iconDropdown}
-                      src={buttonActive === "Account" ? logoUser2 : logoUser}
-                      alt=""
-                    />
-                    <p className={styles.titleUser} onClick={logOut}>
-                      Account
-                    </p>
-                  </div>
-                  <div
-                    className={
-                      buttonActive === "Sing Out"
-                        ? styles.btnActiveSingout
-                        : styles.userDropdown
-                    }
-                  >
-                    <img
-                      className={styles.iconDropdown}
-                      src={singoutIcon}
-                      alt=""
-                    />
-                    <p className={styles.titleUser} onClick={logOut}>
-                      Sign Out
-                    </p>
+            {isLoggedIn ? (
+             
+              <>
+             
+              
+                <div className={styles.ContainerDropdown} onClick={dropDown}>
+                  <img src={logoUser} alt="" />
+                  <p>sandi</p>,
+                 
+                  <img src={logoDropdown} alt="" />
+                </div>
+                <div
+                  className={
+                    drop === false ? styles.dropdownNone : styles.dropdown
+                  }
+                >
+                  <div className={styles.sectionDropdown}>
+                    <div
+                      className={
+                        buttonActive === "Account"
+                          ? styles.btnActive
+                          : styles.userDropdown
+                      }
+                      // onClick={buttonSelected}
+                    >
+                      <img
+                        className={styles.iconDropdown}
+                        src={buttonActive === "Account" ? logoUser2 : logoUser}
+                        alt=""
+                      />
+                      <p className={styles.titleUser} onClick={logOut}>
+                        Account
+                      </p>
+                    </div>
+                    <div
+                      className={
+                        buttonActive === "Sing Out"
+                          ? styles.btnActiveSingout
+                          : styles.userDropdown
+                      }
+                    >
+                      <img
+                        className={styles.iconDropdown}
+                        src={singoutIcon}
+                        alt=""
+                      />
+                      <p className={styles.titleUser} onClick={logOut}>
+                        Sign Out
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
               </>
               
-            ) : (
+            )  : (
               <div className={styles.btnContainer}>
                 <button
                   className={styles.btnSignin}
@@ -133,7 +144,6 @@ function Navbar({ showModal }) {
 
           {/* <button className={styles.btnSignup}>Sign Up</button>{" "} */}
           {/* DROPDOWN ============================================== */}
-         
         </nav>
       </div>
     </div>

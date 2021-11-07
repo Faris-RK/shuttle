@@ -12,6 +12,7 @@ import DatePicker from "react-datepicker";
 // import DatePicker from "react-modern-calendar-datepicker";
 
 import { register } from "../../../actions/auth";
+import { useHistory } from "react-router-dom";
 
 export const RegisterForm = ({
   onSubmit,
@@ -25,6 +26,8 @@ export const RegisterForm = ({
   const [password, setPassword] = useState("");
   const [birthday, setBirthday] = useState(null);
   const [successful, setSuccessful] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const history=useHistory()
 
   const { message } = useSelector((state) => state);
   console.log(message);
@@ -54,8 +57,12 @@ export const RegisterForm = ({
     setSuccessful(false);
 
     dispatch(
-      register(fullname, email, birthday, password, formSetting.userType)
-    )
+      register(fullname, email, birthday, password, formSetting.userType,() => {
+        history.push("/");
+        window.location.reload();
+        setLoading(false);
+      }) )
+    
       .then(() => {
         setSuccessful(true);
       })
@@ -147,8 +154,13 @@ export const RegisterForm = ({
             />
           </div>
           <div className="">
-            <button className="btn btn-primary form-control" type="submit">
+            <button
+            disabled={loading}
+             className="btn btn-primary form-control" type="submit">
               Sign Up
+              {loading && (
+                <span className="spinner-border spinner-border-sm"></span>
+              )}
             </button>
           </div>
 

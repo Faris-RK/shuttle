@@ -1,17 +1,34 @@
 import "./PassengerDetail.css";
 import { Steps, Button, message } from "antd";
 import React, { useState } from "react";
-import stepbar from "../../assets/stepbar.png";
-import { styled } from "@mui/material/styles";
+
 import buslogopd from "../../assets/buslogopd.png";
 import repeat from "../../assets/repeat.png";
-import exstep from "../../assets/exstep.png";
+
 import lineDown from "../../assets/Line-down.png";
 import passengericon from "../../assets/passengericon.png";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
-import orderDetail from "../../assets/orderdetail.png";
+
+import Content1 from "./content1";
+import Content2 from "./content2";
+import Content3 from "./content3";
 import StepsContent from "./Steps";
+
+const { Step } = Steps;
+
+const steps = [
+  {
+    title: "Book",
+    content: <Content1 />,
+  },
+  {
+    title: "Select Seat",
+    content: <Content2 />,
+  },
+  {
+    title: "Pay",
+    content: <Content3 />,
+  },
+];
 
 // const CssTextField = styled(TextField)({
 //   "& .MuiInputBase-input": {
@@ -27,8 +44,27 @@ import StepsContent from "./Steps";
 //   },
 // });
 export default function PassengersDetail() {
+  const [current, setCurrent] = useState(0);
+
+  const next = () => {
+    setCurrent(current + 1);
+  };
+  const book = () => {
+    setCurrent(current === 1);
+  };
+
+  const prev = () => {
+    setCurrent(current - 1);
+  };
   return (
     <div className="container">
+      <div className="header-steps">
+        <Steps className="custom-steps" current={current}>
+          {steps.map((item) => (
+            <Step key={item.title} title={item.title} />
+          ))}
+        </Steps>
+      </div>
       <div className="container-detail-info-form">
         <div className="detail-info">
           <div className="detail-info-header">
@@ -116,7 +152,33 @@ export default function PassengersDetail() {
             </div>
           </div>
         </div>
-        <StepsContent />
+        <div>
+          <div className="steps-content">{steps[current].content}</div>
+          <div className="steps-action">
+            {current < steps.length - 2 && (
+              <button className="select-seat-button" onClick={() => next()}>
+                Select Seat
+              </button>
+            )}
+            {current === steps.length - 2 && (
+             <button className="continue-payment" onClick={() => next()}> Continue to Payment </button>
+            )}
+
+            {current === steps.length - 1 && (
+              <button
+                className="book-now"
+                onClick={() => message.success("Processing complete!")}
+              >
+                Book now
+              </button>
+            )}
+            {current > 0 && (
+              <button className="previous-button" onClick={() => prev()}>
+                Previous
+              </button>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

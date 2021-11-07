@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 
 import { Steps, Button, message } from "antd";
-import Content1 from './content1'
-import Content2 from './content2'
+import Content1 from "./content1";
+import Content2 from "./content2";
 import Content3 from "./content3";
- 
+
 const { Step } = Steps;
 
 const steps = [
@@ -35,17 +35,12 @@ export default function StepsBar() {
 
   return (
     <div>
-      <Steps current={current}>
-        {steps.map((item) => (
-          <Step key={item.title} title={item.title} />
-        ))}
-      </Steps>
       <div className="steps-content">{steps[current].content}</div>
       <div className="steps-action">
         {current < steps.length - 1 && (
-          <Button type="primary" onClick={() => next()}>
-            Next
-          </Button>
+          <button className="select-seat-button" onClick={() => next()}>
+            Select Seat
+          </button>
         )}
         {current === steps.length - 1 && (
           <Button

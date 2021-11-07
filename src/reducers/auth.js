@@ -10,6 +10,8 @@ import { store } from "../services/auth.service";
 
 const token = store.getItem("user");
 
+
+
 const initialState = {
   isLoggedIn: !!token,
   user: token ? jwt(token) : {},

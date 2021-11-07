@@ -77,6 +77,6 @@ export default function content1 () {
               </div>
             </div>
           </Box>
-          <button className="select-seat-button">Select Seat</button>
+         
         </div>
   )}

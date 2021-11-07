@@ -1,0 +1,46 @@
+.listWrapper{
+    border: 1px solid;
+    margin: 32px 32px 0px 32px;
+    padding: 16px;
+    align-items: center;
+}
+.barWrap{
+    /* border: solid; */
+    padding: 24px 0px 15px 6px;
+    gap: 10px;
+    display: flex; 
+}
+.btnWrap{
+    margin-top: -3.5px;
+}
+.btnShuttleList{
+    background-color: transparent;
+    border:1px solid rgba(171, 179, 187, 1) ; 
+    padding: 18px 25px 15px 25px;
+    border-radius: 4px;
+    margin: 0px 10px;
+}
+
+.btnAddBusList{
+    border: none;
+    align-items: center;
+    background-color: #0F5996;
+    color: #ffff;
+    margin-left: 221px;
+    border-radius: 8px;
+    padding: 18px 25px 15px 25px;
+   
+    font-weight: 600;
+    font-family:"Montserrat", sans-serif;
+}
+/* ==================   table   ==================== */
+.Table tr{
+   
+}
+.theadHead{
+    background-color: #CBFFCA;
+    
+}
+.trHead{
+    
+}

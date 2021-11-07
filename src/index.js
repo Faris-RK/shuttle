@@ -8,10 +8,9 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-modern-calendar-datepicker/lib/DatePicker.css";
 import "react-datepicker/dist/react-datepicker.css";
 
-
 import { Provider } from "react-redux";
 
-import  store  from "./store";
+import store from "./store";
 
 // const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 

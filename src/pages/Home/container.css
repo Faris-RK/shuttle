@@ -1,0 +1,7 @@
+.dropNone{
+    display: none;
+}
+.dropOn{
+    min-width: 200px ;
+    background-color: springgreen;
+}

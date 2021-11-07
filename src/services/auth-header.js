@@ -1,11 +1,10 @@
-import { store } from './auth.service'
-
+import { store } from "./auth.service";
 
 export default function authHeader() {
-  const token = JSON.parse(store.getItem('user'));
+  const Token = JSON.parse(store.getItem("Token"));
 
-  if (token && token) {
-    return { Authorization: 'Bearer ' + token };
+  if (Token && Token) {
+    return { Authorization: "Bearer " + Token };
   } else {
     return {};
   }

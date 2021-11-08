@@ -248,8 +248,7 @@
 }
 
 .select-seat-button {
-  margin-top: 42px;
-  margin-left: 450px;
+  margin-top: 16px;
   background: #0f5996;
   color: #fff;
   opacity: 0.5;
@@ -418,8 +417,7 @@
 .continue-payment {
   width: 243px;
   height: 48px;
-  margin-top: 48px;
-  margin-left: 450px;
+  margin-top: 16px;
 
   /* 1 */
 
@@ -485,9 +483,9 @@
 }
 
 .book-now {
+  margin-top: 16px;
   width: 243px;
   height: 48px;
-  margin-left: 450px;
 
   /* 1 */
 
@@ -501,6 +499,68 @@
   line-height: 17px;
   border: none;
   /* identical to box height */
+
+  color: #ffffff;
+}
+
+.custom-steps {
+  align-items: center;
+
+  height: 103px;
+  background: #cbffca;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+}
+
+.ant-steps {
+  width: 1040px !important;
+}
+.ant-steps-horizontal:not(.ant-steps-label-vertical)
+  .ant-steps-item:first-child {
+  padding-left: 137px !important;
+}
+.ant-steps-horizontal:not(.ant-steps-label-vertical) .ant-steps-item {
+  padding-right: 137px !important ;
+}
+.ant-steps-item-container {
+  display: flex;
+  flex-direction: column !important;
+}
+.ant-steps-item-title::after {
+  top: -13px !important;
+}
+.previous-button {
+  margin-top: 16px;
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 17px;
+  /* identical to box height */
+
+  color: #ffffff;
+  width: 243px;
+  height: 48px;
+  background: #0f5996;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1), 0px 0px 5px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  border-style: none;
+}
+.steps-action {
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row-reverse;
+}
+.ant-steps-item-icon {
+  height: 40px !important;
+  width: 40px !important;
+}
+.ant-steps-item-icon .ant-steps-icon {
+  font-family: "Montserrat", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
 
   color: #ffffff;
 }

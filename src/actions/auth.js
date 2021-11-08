@@ -35,7 +35,7 @@ export const searchBus =
   };
 
 export const register =
-  (fullname, email, password, birthday, roles) => (dispatch) => {
+  (fullname, email, password, birthday, roles, cb) => (dispatch) => {
     return AuthService.register(
       fullname,
       email,
@@ -53,7 +53,7 @@ export const register =
           type: SET_MESSAGE,
           payload: response.data.message,
         });
-
+        cb()
         return Promise.resolve();
       },
       (error) => {
@@ -78,14 +78,14 @@ export const register =
     );
   };
 
-export const login = (fullname, password) => (dispatch) => {
+export const login = (fullname, password, cb) => (dispatch) => {
   return AuthService.login(fullname, password).then(
     (data) => {
       dispatch({
         type: LOGIN_SUCCESS,
         payload: { user: data },
       });
-
+      cb()
       return Promise.resolve();
     },
     (error) => {

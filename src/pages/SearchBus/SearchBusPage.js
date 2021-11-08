@@ -178,7 +178,7 @@ function SearchBus(props) {
             </div>
             <div className={styles.titleWrap}>
               <h1 className={styles.titleSide}>
-                Arrival{" "}
+                Arrivalp{" "}
                 <p style={{ cursor: "pointer" }} onClick={handleClickArrival}>
                   RESET
                 </p>

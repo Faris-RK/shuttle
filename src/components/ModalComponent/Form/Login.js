@@ -8,6 +8,8 @@ import closelogo from "../../../assets/closelogo.png";
 import logingoogle from "../../../assets/logingoogle.png";
 import loginfacebook from "../../../assets/loginfacebook.png";
 import or from "../../../assets/or.png";
+import { useHistory } from "react-router-dom";
+import { Redirect } from "react-router";
 
 const required = (value) => {
   if (!value) {
@@ -19,6 +21,8 @@ const required = (value) => {
   }
 };
 
+
+
 export const LoginForm = ({
   props,
   onSubmit,
@@ -27,13 +31,13 @@ export const LoginForm = ({
   formSetting,
 }) => {
   const form = useRef();
+  const history = useHistory()
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // const { isLoggedIn } = useSelector((state) => state);
-  const { message } = useSelector((state) => state);
+  const { isLoggedIn } = useSelector((state) => state);
 
   const dispatch = useDispatch();
 
@@ -52,18 +56,19 @@ export const LoginForm = ({
 
     setLoading(true);
 
-    dispatch(login(email, password, formSetting.userType))
-      .then(() => {
-        props.history.push("/");
+    dispatch(
+      login(email, password, () => {
+        history.push("/");
         window.location.reload();
         setLoading(false);
       })
-      .catch(() => {
-        setLoading(false);
-      });
+    );
+    // .then(() => {
+    //   props.history.push("/");
+    //   window.location.reload();
+    //   setLoading(false);
+    // })
   };
-
-  console.log(formSetting);
 
   return (
     <div className="flex-container">

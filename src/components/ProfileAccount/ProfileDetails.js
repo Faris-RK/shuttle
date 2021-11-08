@@ -1,7 +1,6 @@
 import { Box, TextField, Paper, Rating } from "@mui/material";
 import styles from "../ProfileAccount/Details.module.css";
 import notifIcon from "../../assets/notifIcon.png";
-import profilepoto from "./Profilepoto.png";
 import panah from "./Vectorpanah.png";
 import Grid from "@mui/material/Grid";
 import React from "react";
@@ -12,7 +11,6 @@ import { userData } from "../../services/auth.service";
 import { store } from "../../services/auth.service";
 import moment from "moment";
 import { updateProfile } from "../../actions/auth";
-import { file } from "@babel/types";
 
 const ProfileData = () => {
   // State ===================================================================================

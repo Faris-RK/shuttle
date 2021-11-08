@@ -5,6 +5,7 @@ import { Select, DatePicker } from "antd";
 import { searchShuttle } from "../../redux/services/auth.service";
 import { searchBus } from "../../redux/services/auth.service";
 import moment from "moment";
+import Swal from "sweetalert2";
 import { useHistory } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
@@ -61,6 +62,11 @@ function SearchBar() {
   };
 
   const handleSubmit = (e) => {
+    Swal.fire({
+      icon: "success",
+      title: "Searching Success",
+      timer: 2000,
+    });
     e.preventDefault();
 
     const params = {

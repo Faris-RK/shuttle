@@ -23,12 +23,16 @@ function Navbar({ showModal, closeModal }) {
 
 
   const { auth: user, isLoggedIn } = useSelector((state) => state.auth);
+  const [nameUser, setNameUser] = useState("");
   // console.log(isLoggedIn);
   const [dataUser, setDataUser] = useState("");
   const dispatch = useDispatch();
 
   const Token = store.getItem("user");
-  console.log(Token, "token");
+  let fullName = nameUser;
+  let firstName = fullName.split(" ")[0];
+
+  // console.log(Token, "token");
 
   //  Function ========================================================================================//
 
@@ -58,7 +62,8 @@ function Navbar({ showModal, closeModal }) {
   useEffect(() => {
     userData(Token).then((response) => {
       setDataUser(response?.data?.data);
-      console.log(response.data.data, "ini data user");
+      setNameUser(response?.data?.data.fullname);
+      console.log(response.data.data.fullname, "ini data user");
     });
   }, []);
 
@@ -165,7 +170,10 @@ function Navbar({ showModal, closeModal }) {
                     src={dataUser.profile_picture}
                     alt=""
                   />
-                  <h1 className={styles.userName}>{dataUser.fullname}</h1>
+                  <h1 className={styles.userName}>{firstName}</h1>
+                  {/* {nameUser && nameUser.length && (
+                   
+                  )} */}
                   <img
                     className={styles.iconDownArrow}
                     src={logoDropdown}

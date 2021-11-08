@@ -3,6 +3,7 @@ import { searchBus } from "../../redux/services/auth.service";
 import NumberFormat from "react-number-format";
 // css  =============================================
 import styles from "./SearchBus.module.css";
+import Swal from "sweetalert2";
 // Checkbox , Radio Button ============================
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
@@ -18,6 +19,7 @@ import SearchBar from "../../components/SearchBar/SearchBar.js";
 import { Provider, useDispatch } from "react-redux";
 import { useLocation, useHistory } from "react-router-dom";
 import { storeShuttleData } from "../../redux/actions/bookingData";
+import { Icon } from "@mui/material";
 
 function SearchBus() {
   //  State          ===========================================//
@@ -46,16 +48,14 @@ function SearchBus() {
       time: `${departureValue}`,
     };
 
-    // console.log(location.state.data)
     searchBus(params).then((response) => {
       setShuttle(response?.data?.departure);
+
       // setDepartureTimeList(response?.data?.departure);
-      console.log(response.data.departure);
     });
   }, []);
 
   let locationData = location && location.state ? location.state.data : {};
-  console.log(locationData, "ini location data");
 
   useEffect(() => {
     const params = {
@@ -71,24 +71,42 @@ function SearchBus() {
     };
     searchBus(params).then((response) => {
       setShuttle(response?.data?.departure);
-      console.log(response.data.departure, "ini data");
     });
   }, [locationData, departureValue, arrivalValue, sortBusList]);
 
   //  Function      ===========================================//
   const handleChangeDeparture = (e) => {
     setDepartureValue(e.target.value);
-    console.log(e.target.value);
+    Swal.fire(
+      {
+        icon: "success",
+        title: "Filtering Success",
+      },
+      1000
+    );
   };
   const handleChangeArrival = (e) => {
     setArrivalValue(e.target.value);
-    console.log(e.target.value);
+    Swal.fire(
+      {
+        icon: "success",
+        title: "Filtering Success",
+      },
+      1000
+    );
   };
   const handleChangeSort = (e) => {
     setSortBusList(e.target.value);
   };
   const handleClick = (e) => {
     e.preventDefault(sortBusList);
+    Swal.fire(
+      {
+        icon: "success",
+        title: "Sorting Success",
+      },
+      1000
+    );
   };
 
   const handleClickDeparture = () => {

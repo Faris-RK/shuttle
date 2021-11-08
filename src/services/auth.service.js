@@ -66,3 +66,14 @@ export const login = (email, password) => {
 export const logout = () => {
   store.removeItem("user");
 };
+
+export const updateProfile = (fullname, phone, birthday) => {
+  return axios.patch(API_URL + "user/profile", {
+    fullname,
+    phone,
+    birthday,
+    headers: {
+      AUTHORIZATION: "Bearer " + Token,
+    },
+  });
+};

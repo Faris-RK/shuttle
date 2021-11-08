@@ -6,9 +6,106 @@ import panah from "./Vectorpanah.png";
 import Grid from "@mui/material/Grid";
 import React from "react";
 import ModalRating from "../ModalComponent/ModalRating/ModalRating";
-import { style } from "@mui/system";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { userData } from "../../services/auth.service";
+import { store } from "../../services/auth.service";
+import moment from "moment";
+import { updateProfile } from "../../actions/auth";
+import { file } from "@babel/types";
 
 const ProfileData = () => {
+  // State ===================================================================================
+  // const [dataProfile, setDataProfile] = useState("");
+  const [emailData, setEmailData] = useState("");
+  const [changeFullName, setChangeFullName] = useState("");
+  const [changePhoneNumber, setChangePhoneNumber] = useState("");
+  const [changeBirthday, setChangeBirthday] = useState("");
+  const dispatch = useDispatch();
+
+  const [picture, setPicture] = useState("");
+  const [valueFile, setValuefile] = useState("");
+
+  // Token ===================================================================================
+
+  const Token = store.getItem("user");
+  // console.log(Token, "token");
+
+  // Function ===================================================================================
+  const onChangeFullName = (e) => {
+    // console.log(value);
+    setChangeFullName(e.target.value);
+  };
+  const onChangePhoneNumber = (e) => {
+    console.log(e.target.value, "phone");
+    setChangePhoneNumber(e.target.value);
+  };
+  const onChangeBirthday = (e) => {
+    // console.log(value);
+    setChangeBirthday(e.target.value);
+  };
+  const handleClick = (e, Token) => {
+    e.preventDefault();
+    // setChangeFullName(changeFullName);
+    // setChangePhoneNumber(changePhoneNumber);
+    dispatch(updateProfile(changeFullName, changePhoneNumber));
+  };
+  console.log(handleClick, "data handleClcik");
+
+  // const handleSubmitAvatar = (e) => {
+  //   e.preventDefault();
+  // };
+  // const base64 = (e) =>
+  //   new Promise((resolve, reject) => {
+  //     let file = e.target.files[0];
+  //     let reader = new FileReader();
+  //     reader.readAsDataURL(file);
+  //     reader.onload = () => resolve(reader.result);
+  //     reader.onerror = (error) => reject(error);
+  //   });
+  // function base64(event) {
+  //   let reader = new FileReader();
+  //   reader.onload = function () {
+  //     let output = document.getElementById("avatar");
+  //     output.src = reader.result;
+  //   };
+  //   if (event.target.files[0]) {
+  //     reader.readAsDataURL(event.target.files[0]);
+  //   }
+  // }
+
+  const base64 = (e) => {
+    let file = e.target.files[0];
+    let reader = new FileReader();
+    reader.onloadend = function () {
+      setValuefile(file);
+      setPicture(reader.result);
+    };
+    reader.readAsDataURL(file);
+    console.log(file, "file Avatar");
+  };
+  const handleClickPicture = async (e) => {
+    const pictureProfile = await base64(e.target.files[0]);
+    setPicture(pictureProfile);
+  };
+  // useEffect ================================================================================//
+
+  useEffect(() => {
+    userData(Token).then((response) => {
+      // setDataProfile(response?.data?.data);
+      setEmailData(response.data.data.email);
+      setChangeFullName(response?.data?.data?.fullname);
+      setChangePhoneNumber(response?.data?.data?.phone);
+
+      let birthDate = moment(response?.data?.data?.birthday).format(
+        "YYYY-MM-DD"
+      );
+      setChangeBirthday(birthDate);
+      console.log(response.data.data, "ini data user Profile");
+    });
+  }, []);
+  console.log(picture, "ini foto kau");
+
   return (
     <div className={styles.boxProf}>
       <div className={styles.textp}>
@@ -16,12 +113,42 @@ const ProfileData = () => {
       </div>
       <div className={styles.imagecontainer}>
         <div>
-          <img className={styles.imgprofile} src={profilepoto} alt=""></img>
+          {picture === "" ? (
+            <h1 className={styles.userDefaultAvatar}>
+              {changeFullName.slice(0, 2)}
+            </h1>
+          ) : (
+            <img className={styles.imgprofile} src={picture} alt="" />
+          )}
         </div>
 
         <div className={styles.buttonchange}>
-          <button className={styles.buttonphoto}>Change Photo</button>
-          <h6 className={styles.textremove}>Remove</h6>
+          <input
+            type="file"
+            id="avatar"
+            name="avatar"
+            style={{ display: "none" }}
+          />
+          {picture === "" ? (
+            <div>
+              <label
+                className={styles.buttonphoto}
+                for="avatar"
+                onClick={handleClickPicture}
+              >
+                Upload Photo
+              </label>
+            </div>
+          ) : (
+            <>
+              <label className={styles.buttonChangePhoto} for="avatar">
+                Change Photo
+              </label>
+              <h1 className={styles.textremove} onClick={() => setPicture("")}>
+                Remove
+              </h1>{" "}
+            </>
+          )}
         </div>
       </div>
 
@@ -30,47 +157,60 @@ const ProfileData = () => {
           <Grid item xs={12}>
             <TextField
               required
-              id="outlined-required"
-              variant="standard"
+              id="standard-basic"
+              onChange={onChangeFullName}
+              placeholder="Full Name"
               label="Full Name"
+              variant="standard"
+              value={changeFullName}
               style={{ width: "90%" }}
-              defaultValue="Full Name"
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               required
-              id="outlined-required"
+              id="standard-basic"
+              placeholder="Email"
               label="Email"
               variant="standard"
-              defaultValue="Email"
+              value={emailData}
               style={{ width: "90%" }}
+              disabled
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               required
-              id="outlined-required"
+              onChange={onChangePhoneNumber}
+              id="standard-basic"
               type="number"
               variant="standard"
               label="Phone Number"
-              defaultValue="Phone Number"
+              value={changePhoneNumber}
               style={{ width: "90%" }}
             />
           </Grid>
           <Grid item xs={12}>
             <TextField
               required
-              id="outlined-required"
+              onChange={onChangeBirthday}
+              id="standard-basic"
               type="date"
               variant="standard"
               label="Birthday Date"
-              defaultValue="2017-05-24"
+              value={changeBirthday}
               style={{ width: "90%" }}
             />
           </Grid>
         </Grid>
-        <button className={styles.buttonsave}>Save</button>
+
+        <button
+          onClick={(e) => handleClick(e, Token)}
+          className={styles.buttonsave}
+        >
+          Save
+        </button>
+        {/* <button className={styles.btnSaveRequired}>Save</button> */}
       </div>
     </div>
   );

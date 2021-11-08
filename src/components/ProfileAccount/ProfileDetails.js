@@ -53,14 +53,13 @@ const ProfileData = () => {
   // const handleSubmitAvatar = (e) => {
   //   e.preventDefault();
   // };
-  // const base64 = (e) =>
-  //   new Promise((resolve, reject) => {
-  //     let file = e.target.files[0];
-  //     let reader = new FileReader();
-  //     reader.readAsDataURL(file);
-  //     reader.onload = () => resolve(reader.result);
-  //     reader.onerror = (error) => reject(error);
-  //   });
+  const base64 = (file) =>
+    new Promise((resolve, reject) => {
+      let reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = (error) => reject(error);
+    });
   // function base64(event) {
   //   let reader = new FileReader();
   //   reader.onload = function () {
@@ -72,20 +71,21 @@ const ProfileData = () => {
   //   }
   // }
 
-  const base64 = (e) => {
-    let file = e.target.files[0];
-    let reader = new FileReader();
-    reader.onloadend = function () {
-      setValuefile(file);
-      setPicture(reader.result);
-    };
-    reader.readAsDataURL(file);
-    console.log(file, "file Avatar");
-  };
-  const handleClickPicture = async (e) => {
+  // const base64 = (file) => {
+  //   let file = e.target.files[0];
+  //   let reader = new FileReader();
+  //   reader.onloadend = function () {
+  //     setValuefile();
+  //     setPicture(reader.result);
+  //   };
+  //   reader.readAsDataURL(file);
+  //   console.log(file, "file Avatar");
+  // };
+  const handleChangePicture = async (e) => {
     const pictureProfile = await base64(e.target.files[0]);
     setPicture(pictureProfile);
   };
+  console.log(picture, "ini foto");
   // useEffect ================================================================================//
 
   useEffect(() => {
@@ -126,14 +126,11 @@ const ProfileData = () => {
             id="avatar"
             name="avatar"
             style={{ display: "none" }}
+            onChange={handleChangePicture}
           />
           {picture === "" ? (
             <div>
-              <label
-                className={styles.buttonphoto}
-                for="avatar"
-                onClick={handleClickPicture}
-              >
+              <label className={styles.buttonphoto} for="avatar">
                 Upload Photo
               </label>
             </div>

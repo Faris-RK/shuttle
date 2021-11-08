@@ -284,7 +284,7 @@ function SearchBus() {
 
         <div className={styles.DescContainer}>
           <button className={styles.btnSort} onClick={dropDown}>
-            <img src={sortIconSearcPage} />
+            <img src={sortIconSearcPage} alt="" />
             &nbsp; Sort
           </button>
           <div

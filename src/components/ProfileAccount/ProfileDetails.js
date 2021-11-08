@@ -7,10 +7,10 @@ import React from "react";
 import ModalRating from "../ModalComponent/ModalRating/ModalRating";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { userData } from "../../services/auth.service";
-import { store } from "../../services/auth.service";
+import { userData } from "../../redux/services/auth.service";
+import { store } from "../../redux/services/auth.service";
 import moment from "moment";
-import { updateProfile } from "../../actions/auth";
+import { updateProfile } from "../../redux/actions/auth"
 
 const ProfileData = () => {
   // State ===================================================================================

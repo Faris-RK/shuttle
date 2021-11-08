@@ -51,6 +51,7 @@ export default function PassengersDetail() {
   console.log(shuttles)
   // useselector ambil data dari redux
   
+  
 
   const [current, setCurrent] = useState(0);
   const [fullname, setFullname] = useState();

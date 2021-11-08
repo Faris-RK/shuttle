@@ -7,28 +7,17 @@ import repeat from "../../assets/repeat.png";
 
 import lineDown from "../../assets/Line-down.png";
 import passengericon from "../../assets/passengericon.png";
-
+import { useSelector, useDispatch } from "react-redux";
 import Content1 from "./content1";
 import Content2 from "./content2";
 import Content3 from "./content3";
-import StepsContent from "./Steps";
+import { useLocation } from "react-router-dom";
+import {
+  storePassengerData,
+  storeSelectSeat,
+} from "../../redux/actions/bookingData";
 
-const { Step } = Steps;
-
-const steps = [
-  {
-    title: "Book",
-    content: <Content1 />,
-  },
-  {
-    title: "Select Seat",
-    content: <Content2 />,
-  },
-  {
-    title: "Pay",
-    content: <Content3 />,
-  },
-];
+import { getBookedSeat } from "../../redux/services/bookingData.service";
 
 // const CssTextField = styled(TextField)({
 //   "& .MuiInputBase-input": {
@@ -43,19 +32,84 @@ const steps = [
 //     margin: "0px",
 //   },
 // });
+const { Step } = Steps;
+
+const steps = [
+  {
+    title: "Book",
+  },
+  {
+    title: "Select Seat",
+  },
+  {
+    title: "Pay",
+  },
+];
+
 export default function PassengersDetail() {
+  const shuttles = useSelector((state) => state.bookingData.shuttles);
+  console.log(shuttles)
+  // useselector ambil data dari redux
+  
+
   const [current, setCurrent] = useState(0);
+  const [fullname, setFullname] = useState();
+  const [phoneNumber, setPhoneNumber] = useState();
+  const [email, setEmail] = useState();
+  const [age, setAge] = useState();
+  const [selectedSeat, setSelectedSeat] = useState();
+  const [bookedSeat, setBookedSeat] = useState([])
+
+  const dispatch = useDispatch();
 
   const next = () => {
     setCurrent(current + 1);
-  };
-  const book = () => {
-    setCurrent(current === 1);
   };
 
   const prev = () => {
     setCurrent(current - 1);
   };
+
+  const onChangeEmail = (e) => {
+    const email = e.target.value;
+    setEmail(email);
+  };
+
+  const onChangeFullname = (e) => {
+    const fullname = e.target.value;
+    setFullname(fullname);
+  };
+
+  const onChangeAge = (e) => {
+    const age = e.target.value;
+    setAge(age);
+  };
+
+  const onChangePhoneNumber = (e) => {
+    const phoneNumber = e.target.value;
+    setPhoneNumber(phoneNumber);
+  };
+
+  const handleClickSelectSeat = (e) => {
+    e.preventDefault();
+    const passengerData = { fullname, email, age, phoneNumber };
+    const params = {
+      date: shuttles.date,
+      bus_schedule_id: shuttles.busId
+      
+    }
+    getBookedSeat(params).then((response) => {
+      setBookedSeat(response?.data?.data)
+    });
+
+    dispatch(storePassengerData(passengerData));
+  };
+  const handleClickContinueToPayment = (e) => {
+    e.preventDefault();
+
+    dispatch(storeSelectSeat(selectedSeat));
+  };
+
   return (
     <div className="container">
       <div className="header-steps">
@@ -71,75 +125,42 @@ export default function PassengersDetail() {
             <div className="bus-logo-pd">
               <img src={buslogopd} alt="" />
             </div>
-            <div className="city-1">Jakarta</div>
+            <div className="city-1"> {shuttles.destinationCity}</div>
             <div className="repeat-logo">
               <img src={repeat} alt="" />
             </div>
-            <div className="city-2">Surabaya</div>
+            <div className="city-2"> {shuttles.arrivalCity}</div>
           </div>
           <div>
             <hr className="line-1-pd" />
           </div>
           <div className="container-all-detail">
-            <div className="date-schedule-detail">Sat, 21 Aug 2021</div>
-            <div className="pt-scedule-detail">PT Sinar Jaya Group </div>
+            <div className="date-schedule-detail">{shuttles.date}</div>
+            <div className="pt-scedule-detail">
+              PT {shuttles.BusProvider} GROUP{" "}
+            </div>
             <div className="bus-class-schedule-detail">Executive</div>
             <div className="schedule-detail-title">Schedule</div>
             <div className="container-schedule-detail">
               <div className="container-time-schedule-detail">
-                <div className="departure-time-schedule-detail">13.10</div>
-                <div className="arrival-time-schedule-detail">21.00</div>
+                <div className="departure-time-schedule-detail">
+                  {shuttles.departureTime}
+                </div>
+                <div className="arrival-time-schedule-detail">
+                  {shuttles.arrivalTime}
+                </div>
               </div>
               <div className="line-down-schedule-detail">
                 <img src={lineDown} alt="" />
               </div>
               <div className="container-city-schedule-detail">
                 <div className="city-departure-schedule-detail">
-                  <div className="city-1">Jakarta</div>
-                  <div className="terminal-1">
-                    Terminal Kampung Rambutan Jakarta
-                  </div>
+                  <div className="city-1">{shuttles.destinationCity}</div>
+                  <div className="terminal-1">{shuttles.departure_shuttle}</div>
                 </div>
                 <div className="city-arrival-schedule-detail">
-                  <div className="city-2">Surabaya</div>
-                  <div className="terminal-2">Terminal Bungurasih Surabaya</div>
-                </div>
-              </div>
-            </div>
-            <div className="total-passenger-container">
-              <div className="title">Total Passenger</div>
-              <div className="total-passenger">
-                <img src={passengericon} alt="" />
-                <div className="number">1 Passenger</div>
-              </div>
-            </div>
-          </div>
-          <div>
-            <hr className="line-1-pd" />
-          </div>
-          <div className="container-all-detail">
-            <div className="date-schedule-detail">Sat, 28 Aug 2021</div>
-            <div className="pt-scedule-detail">PT Sinar Jaya Group </div>
-            <div className="bus-class-schedule-detail">Executive</div>
-            <div className="schedule-detail-title">Schedule</div>
-            <div className="container-schedule-detail">
-              <div className="container-time-schedule-detail">
-                <div className="departure-time-schedule-detail">07.00</div>
-                <div className="arrival-time-schedule-detail">15.00</div>
-              </div>
-              <div className="line-down-schedule-detail">
-                <img src={lineDown} alt="" />
-              </div>
-              <div className="container-city-schedule-detail">
-                <div className="city-departure-schedule-detail">
-                  <div className="city-1">Surabaya</div>
-                  <div className="terminal-1">Terminal Bungurasih Surabaya</div>
-                </div>
-                <div className="city-arrival-schedule-detail">
-                  <div className="city-2">Jakarta</div>
-                  <div className="terminal-2">
-                    Terminal Kampung Rambutan Jakarta
-                  </div>
+                  <div className="city-2">{shuttles.arrivalCity}</div>
+                  <div className="terminal-2">{shuttles.arrivalShuttle}</div>
                 </div>
               </div>
             </div>
@@ -153,15 +174,47 @@ export default function PassengersDetail() {
           </div>
         </div>
         <div>
-          <div className="steps-content">{steps[current].content}</div>
+          <div className="steps-content">
+            {current === 0 && (
+              <Content1
+                onChangeFullname={onChangeFullname}
+                onChangeEmail={onChangeEmail}
+                onChangeAge={onChangeAge}
+                onChangePhoneNumber={onChangePhoneNumber}
+              />
+            )}
+            {current === 1 && (
+              <Content2
+                setSelectedSeat={setSelectedSeat}
+                selectedSeat={selectedSeat}
+                bookedSeat={bookedSeat}
+              />
+            )}
+            {current === 2 && <Content3 />}
+          </div>
           <div className="steps-action">
             {current < steps.length - 2 && (
-              <button className="select-seat-button" onClick={() => next()}>
+              <button
+                className="select-seat-button"
+                onClick={(e) => {
+                  handleClickSelectSeat(e);
+                  next();
+                }}
+              >
                 Select Seat
               </button>
             )}
             {current === steps.length - 2 && (
-             <button className="continue-payment" onClick={() => next()}> Continue to Payment </button>
+              <button
+                className="continue-payment"
+                onClick={(e) => {
+                  handleClickContinueToPayment(e);
+                  next();
+                }}
+              >
+                {" "}
+                Continue to Payment{" "}
+              </button>
             )}
 
             {current === steps.length - 1 && (

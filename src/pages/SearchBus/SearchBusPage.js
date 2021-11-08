@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { searchBus } from "../../services/auth.service";
+import { searchBus } from "../../redux/services/auth.service";
 import NumberFormat from "react-number-format";
 // css  =============================================
 import styles from "./SearchBus.module.css";
@@ -15,10 +15,11 @@ import sortIconSearcPage from "../../../src/assets/sortIconSearcPage.png";
 import SortIcon from "@mui/icons-material/Sort";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import SearchBar from "../../components/SearchBar/SearchBar.js";
-import { Provider } from "react-redux";
-import { useLocation } from "react-router-dom";
+import { Provider, useDispatch } from "react-redux";
+import { useLocation, useHistory } from "react-router-dom";
+import { storeShuttleData } from "../../redux/actions/bookingData";
 
-function SearchBus(props) {
+function SearchBus() {
   //  State          ===========================================//
   const [shuttle, setShuttle] = useState([]);
   const [arrivalValue, setArrivalValue] = useState([]);
@@ -27,8 +28,11 @@ function SearchBus(props) {
   const [sortBusList, setSortBusList] = useState([]);
 
   const location = useLocation();
+  const [booking, setBooking] = useState();
+  const history = useHistory();
+  const dispatch = useDispatch();
+
   console.log(location, "ini location");
-  console.log(props, "ini props");
 
   //  UseEffect      ===========================================//
   useEffect(() => {
@@ -92,6 +96,15 @@ function SearchBus(props) {
   };
   const handleClickArrival = () => {
     setArrivalValue("");
+  };
+  const handleClickBooking = (e, shuttles) => {
+    e.preventDefault();
+    // pindah page
+    // kirim data booking
+    dispatch(storeShuttleData(shuttles));
+    history.push({ pathname: "/PassengerDetail" });
+
+    console.log("p");
   };
   // Dropdown Sort   ===========================================//
   const [drop, setDrop] = useState(false);
@@ -298,6 +311,7 @@ function SearchBus(props) {
               </button>
             </RadioGroup>
           </div>
+
           {shuttle?.map((shuttles) => {
             return (
               <div className={styles.DescWrapper}>
@@ -354,7 +368,14 @@ function SearchBus(props) {
                     />{" "}
                     /<p className={styles.seats}>seat</p>
                   </h1>
-                  <button className={styles.btnBook}>Booking</button>
+                  <button
+                    onClick={(e) => {
+                      handleClickBooking(e, shuttles);
+                    }}
+                    className={styles.btnBook}
+                  >
+                    Booking
+                  </button>
                   <br />
                   <p className={styles.availableSeatTxt}>
                     {" "}

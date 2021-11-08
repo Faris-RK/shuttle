@@ -7,13 +7,13 @@ import logoDropdown from "../../assets/logoDropdown.svg";
 import logoUser2 from "../../assets/logoUser2.svg";
 import singoutIcon from "../../assets/singoutIcon.svg";
 import { useState, useEffect } from "react";
-import { logout } from "../../actions/auth";
+import { logout } from "../../redux/actions/auth";
 import { history } from "../../helpers/history";
-import { clearMessage } from "../../actions/message";
+import { clearMessage } from "../../redux/actions/message";
 import { useDispatch, useSelector } from "react-redux";
-import * as UserService from '../../services/user.service'
-import { userData } from "../../services/auth.service";
-import { store } from "../../services/auth.service";
+import * as UserService from '../../redux/services/user.service'
+import { userData } from "../../redux/services/auth.service";
+import { store } from "../../redux/services/auth.service";
 
 function Navbar({ showModal, closeModal }) {
   //  state ========================================================================================//

@@ -11,7 +11,7 @@ import { useDispatch, useSelector } from "react-redux";
 import DatePicker from "react-datepicker";
 // import DatePicker from "react-modern-calendar-datepicker";
 
-import { register } from "../../../actions/auth";
+import { register } from "../../../redux/actions/auth";
 import { useHistory } from "react-router-dom";
 
 export const RegisterForm = ({

@@ -9,6 +9,7 @@ export const searchShuttle = () => {
   return axios.get(API_URL + "search/shuttle");
 };
 
+
 export const searchBus = (params) => {
   return axios.get(API_URL + "search", { params });
 };

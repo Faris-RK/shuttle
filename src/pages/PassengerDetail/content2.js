@@ -3,8 +3,14 @@ import selectedIcon from "../../assets/selected-icon.png";
 import availableIcon from "../../assets/available-icon.png";
 import driverIcon from "../../assets/driver-icon.png";
 import line2 from "../../assets/line2.png";
+import { useState } from "react";
 
-export default function content2() {
+const totalSeat = [
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+  0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+];
+
+export default function Content2(props) {
   return (
     <div className="departure-seat-container">
       <div className="departure-seat-header">
@@ -27,139 +33,20 @@ export default function content2() {
         <div className="seat-card">
           <img className="driver-icon" src={driverIcon} alt="" />
           <div className="seat-container">
-            <div className="seat-left">
-              <ul className="seat-left-1-listed">
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-                <li>
-                  <button className="seat-row-1" />
-                </li>
-              </ul>
-              <ul className="seat-left-2-listed">
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-                <li>
-                  <button className="seat-row-2" />
-                </li>
-              </ul>
-            </div>
-            <img className="line2" src={line2} alt="" />
-            <div className="seat-right">
-              <ul className="seat-right-1-listed">
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-                <li>
-                  <button className="seat-row-3" />
-                </li>
-              </ul>
-              <ul className="seat-right-2-listed">
-                <li>
-                  <button className="seat-row-4 active" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-                <li>
-                  <button className="seat-row-4" />
-                </li>
-              </ul>
-            </div>
+            {props.bookedSeat.map((taken, index) => {
+              return (
+                <>
+                  <button
+                    disabled={taken === "BOOKED" ? true : false}
+                    className={`seat ${
+                      index === props.selectedSeat && "selected"
+                    }`}
+                    onClick={() => props.setSelectedSeat(index)}
+                  ></button>
+                  {index === 19 && <div className="seat-devider"></div>}
+                </>
+              );
+            })}
           </div>
         </div>
       </div>

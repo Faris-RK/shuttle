@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { login } from "../../../actions/auth";
+import { login } from "../../../redux/actions/auth";
 import "./Form.css";
 import logomodal from "../../../assets/logo-modal.png";
 import closelogo from "../../../assets/closelogo.png";

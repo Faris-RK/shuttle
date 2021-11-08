@@ -1,6 +1,7 @@
 import { combineReducers } from "redux";
 import auth from "./auth";
 import message from "./message";
+import bookingData from './bookingData'
 const initialState = {
   token: "",
   userList: [],
@@ -17,7 +18,7 @@ export function userReducer(state = initialState, action) {
 
 
 export default combineReducers({
-  
+  bookingData,
   auth,
   message,
 });

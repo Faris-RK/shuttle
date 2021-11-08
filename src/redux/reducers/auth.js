@@ -6,7 +6,7 @@ import {
   LOGIN_FAIL,
   LOGOUT,
 } from "../actions/types";
-import { store } from "../services/auth.service";
+import { store } from "../services/auth.service"
 
 const token = store.getItem("user");
 
